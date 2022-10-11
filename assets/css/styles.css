@@ -94,7 +94,7 @@ img {
 }
 
 .section {
-  padding-top: 3rem;
+  padding-top: 1.5rem;
   padding-bottom: 2rem;
 }
 
@@ -191,7 +191,7 @@ img {
 .home {
   position: relative;
   row-gap: 5rem;
-  padding: 4rem 0 5rem;
+  padding: 3rem 0 1rem;
 }
 
 .home__data {
@@ -407,6 +407,18 @@ img {
   font-size: var(--smaller-font-size);
 }
 
+/*===== MAP SURABAYA =====*/
+.mapSby {
+  width: 100%;
+  height: 100%;
+}
+
+/*===== Data =====*/
+.add-data {
+  display: block;
+  top: 0;
+}
+
 /* ===== MEDIA QUERIES=====*/
 @media screen and (max-width: 320px) {
   .home {
@@ -522,7 +534,7 @@ img {
     margin-right: auto;
   }
   .home {
-    padding: 10rem 0 2rem;
+    padding: 6.5rem 0 2rem;
   }
   .home__img {
     width: 450px;

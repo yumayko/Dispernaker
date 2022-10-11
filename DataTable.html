@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Dispenaker</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">DISPERNAKER</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html" class="nav__link">Dashboard</a></li>
+                        <li class="nav__item"><a href="DataTable.html" class="nav__link active">Data Tabel</a></li>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <section class="home bd-grid" id="home">
+                <div class="add-data">
+                    <button class="button">Add Data</button>
+                </div>
+                <div class="popup-addData">
+                    <div class="form-addData">
+                        <h2>Insert New Data</h2>
+                        <div class="form-element">
+                            <label for="">Nama</label>
+                            <input type="text" id="Nama" placeholder="Masukkan nama lengkap" required>
+                        </div>
+                        <div class="form-element">
+                            <label for="">Jenis Perizinan</label>
+                            <input type="text" id="Jenis" placeholder="Masukkan jenis perizinan" required>
+                        </div>
+                        <div class="form-element">
+                          <button type="submit" class="btn-submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+        
+            <!--===== FOOTER =====-->
+            <footer class="footer">
+                <p class="footer__copy">&#169; DISPERNAKER. All rigths reserved</p>
+            </footer>
+        
+
+            <!--===== SCROLL REVEAL =====-->
+            <script src="https://unpkg.com/scrollreveal"></script>
+
+            <!--===== MAIN JS =====-->
+            <script src="assets/js/main.js"></script>
+
+            <!-- Bootstrap -->
+        </main>
+    </body>
+</html>
