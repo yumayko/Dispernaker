@@ -286,22 +286,24 @@ img {
   font-size: var(--smaller-font-size);
 }
 
+/* ==== Title DataTable ==== */
+.Data__title {
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+  margin-top: var(--mb-2);
+  margin-bottom: 5px;
+  text-align: center;
+}
+
 /*===== MAP SURABAYA =====*/
 
 /*===== Data =====*/
-.add-data {
-  position: absolute;
-  right: 0;
-  top: 100px;
-  padding-bottom: 10px;
+.grid-article{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.form-addData{
-  position: absolute;
-  top: 200%;
-  right: 50%;
-  transform: translate(50%, -50%);
-}
 
 /* ===== MEDIA QUERIES=====*/
 @media screen and (max-width: 320px) {
