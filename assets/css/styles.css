@@ -190,7 +190,7 @@ img {
 /*===== HOME =====*/
 .home {
   position: relative;
-  row-gap: 5rem;
+  row-gap: 1.5rem;
   padding: 3rem 0 1rem;
 }
 
@@ -251,6 +251,7 @@ img {
 
 .button:hover {
   box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 /* ===== ABOUT =====*/
@@ -415,8 +416,10 @@ img {
 
 /*===== Data =====*/
 .add-data {
-  display: block;
-  top: 0;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  padding-bottom: 10px;
 }
 
 /* ===== MEDIA QUERIES=====*/
