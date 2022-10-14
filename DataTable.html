@@ -41,7 +41,7 @@
                         <h4>Data Tabel Pelatihan</h4>
                     </div>
                     <div class="add-data">
-                        <button class="button">Add Data</button>
+                        <button class="button" id="button-addData">Add Data</button>
                     </div>
                 </div>
                     <table class="table">
@@ -67,8 +67,47 @@
                             <td>Belum Lulus</td>
                       </table>
             </section>
+            <div class="popup">
+                <div class="popup-content">
+                    <h3 class="popup-title">Add Data</h3>
+                    <button class="close-button" id="close-button">X</button>
+                    <div class="popup-body">
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text" name="nama" id="nama" placeholder="Masukkan Nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nohp">No HP</label>
+                            <input type="text" name="nohp" id="nohp" placeholder="Masukkan No HP" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <input type="text" name="alamat" id="alamat" placeholder="Masukkan Alamat" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kota">Kota</label>
+                            <input type="text" name="kota" id="kota" placeholder="Masukkan Kota" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="provinsi">Provinsi</label>
+                            <input type="text" name="provinsi" id="provinsi" placeholder="Masukkan Provinsi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kodepos">Kode Pos</label>
+                            <input type="text" name="kodepos" id="kodepos" placeholder="Masukkan Kode Pos" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jeniskelamin">Jenis Kelamin</label>
+                            <input type="text" name="jeniskelamin" id="jeniskelamin" placeholder="Masukkan Jenis Kelamin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tempatlahir">Tempat Lahir</label>
+                            <input type="text" name="tempatlahir" id="tempatlahir" placeholder="Masukkan Tempat Lahir" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
-
 
         <!--===== FOOTER =====-->
         <footer class="footer">
@@ -81,6 +120,7 @@
 
         <!--===== MAIN JS =====-->
         <script src="assets/js/main.js"></script>
+        <script src="assets/js/popup.js"></script>
         </main>
     </body>
 </html>
