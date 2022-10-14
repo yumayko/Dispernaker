@@ -296,6 +296,94 @@ img {
   margin-bottom: 5px;
   text-align: center;
 }
+/* ==== PopUp ==== */
+.popup {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 101;
+  justify-content: center;
+  align-items: center;
+}
+/* ==== PopUp Add Data ==== */
+.popup-content{
+  position: relative;
+  max-width: 700px;
+  max-height: 450px;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 50px;
+}
+.popup-title{
+  text-align: center;
+  top: 0;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.close-button{
+  position: absolute;
+  top: 0;
+  right: 5px;
+  padding: 5px ;
+  background-color: white;
+  border: 1px;
+  font-size: 25px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.popup-content .popup-body{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.popup-content .popup-body .form-group{
+  margin-bottom: 20px;
+  width: calc(100% / 2 - 20px);
+}
+.form-group label{
+  width: 200px;
+  color: #757575;
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.form-group input{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.form-group input:is(:focus, :valid){
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* ==== Table ==== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+th, td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
 
 /*===== MAP SURABAYA =====*/
 
