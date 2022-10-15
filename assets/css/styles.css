@@ -384,13 +384,12 @@ img {
   margin: 10px 20px;
 }
 .according-container .ac-title{
-  position: relative;
   font-size: 20px;
   font-weight: 600;
   padding: 10px;
   z-index: 101;
   text-align: center;
-  background-color: #3399ff;
+  background-color: #3e6ff4;
   color: #fff;
   cursor: pointer;
 }
