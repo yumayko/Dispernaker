@@ -291,7 +291,7 @@ img {
 /* ==== Title DataTable ==== */
 .Data__title {
   font-size: var(--h2-font-size);
-  color: var(--first-color);
+  color: var(--second-color);
   margin-top: var(--mb-2);
   margin-bottom: 5px;
   text-align: center;
