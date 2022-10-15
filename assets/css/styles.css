@@ -378,6 +378,34 @@ img {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+/* ==== Data Table ==== */
+.according-container{
+  position: relative;
+  margin: 10px 20px;
+}
+.according-container .ac-title{
+  position: relative;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
+  z-index: 101;
+  text-align: center;
+  background-color: #3399ff;
+  color: #fff;
+  cursor: pointer;
+}
+.according-container .ac-content{
+  position: relative;
+  background-color: #d5dbd9;
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+  overflow-y: auto;
+}
+.according-container.active .ac-content{
+  height: 250px;
+  padding: 10px;
+}
 /* ==== Table ==== */
 .table {
   width: 100%;
