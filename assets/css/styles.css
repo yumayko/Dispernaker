@@ -291,7 +291,7 @@ img {
 /* ==== Title DataTable ==== */
 .Data__title {
   font-size: var(--h2-font-size);
-  color: var(--first-color);
+  color: var(--second-color);
   margin-top: var(--mb-2);
   margin-bottom: 5px;
   text-align: center;
@@ -433,7 +433,7 @@ img {
   padding: 10px;
   z-index: 101;
   text-align: center;
-  background-color: #3399ff;
+  background-color: #3e6ff4;
   color: #fff;
   cursor: pointer;
 }
@@ -461,6 +461,37 @@ th, td {
   padding: 15px;
   text-align: center;
   border-bottom: 1px solid #ddd;
+
+}
+
+.button-edit {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: .5rem;
+  text-align: center;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-delete {
+  background-color: #f44336; /* Red */
+  border: none;
+  color: white;
+  padding: .5rem;
+  text-align: center;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 tr:hover {
