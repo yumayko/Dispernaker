@@ -51,6 +51,6 @@ const sr = ScrollReveal({
 });
 
 sr.reveal('.home__data, .Data__title, .skills__subtitle, .skills__text',{}); 
-sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
+sr.reveal('.accordion, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.mapSby',{ interval: 200}); 
-sr.reveal('.according-container, .work__img, .contact__input',{interval: 200}); 
+sr.reveal(', .work__img, .contact__input',{interval: 200}); 
