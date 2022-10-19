@@ -207,6 +207,7 @@ img {
 .home__title {
   font-size: 2rem;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .home__title-color {
