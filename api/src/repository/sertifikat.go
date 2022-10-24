@@ -11,7 +11,7 @@ type repoSert struct {
 	DB *gorm.DB
 }
 
-func (r *repoSert) CreateSert(sert model.Sertifikat) (id int, err error) {
+func (r *repoSert) CreateSert(sert model.Sertificate) (id int, err error) {
 	res := r.DB.Debug().Create(&sert)
 	if res.RowsAffected < 1 {
 		return 0, res.Error
@@ -20,30 +20,30 @@ func (r *repoSert) CreateSert(sert model.Sertifikat) (id int, err error) {
 	return sert.ID, nil
 }
 
-func (r *repoSert) GetSerts() (serts []model.Sertifikat, err error) {
+func (r *repoSert) GetSerts() (serts []model.Sertificate, err error) {
 	if err = r.DB.
 		Debug().
 		Find(&serts).
 		Error; err != nil {
-		return []model.Sertifikat{}, err
+		return []model.Sertificate{}, err
 	}
 
 	return serts, nil
 }
 
-func (r *repoSert) GetSertByID(id int) (sert model.Sertifikat, err error) {
+func (r *repoSert) GetSertByID(id int) (sert model.Sertificate, err error) {
 	if err = r.DB.
 		Debug().
 		First(&sert, id).
 		Error; err != nil {
-		return model.Sertifikat{}, err
+		return model.Sertificate{}, err
 	}
 
 	return
 }
 
-func (r *repoSert) UpdateSert(sert model.Sertifikat, id int) error {
-	temp := model.Sertifikat{}
+func (r *repoSert) UpdateSert(sert model.Sertificate, id int) error {
+	temp := model.Sertificate{}
 	temp.ID = id
 
 	res := r.DB.
@@ -57,7 +57,7 @@ func (r *repoSert) UpdateSert(sert model.Sertifikat, id int) error {
 }
 
 func (r *repoSert) DeleteSert(id int) error {
-	sert := model.Sertifikat{}
+	sert := model.Sertificate{}
 	sert.ID = id
 
 	res := r.DB.Find(&sert)

@@ -1,6 +1,6 @@
 package model
 
-type Sertifikat struct {
+type Sertificate struct {
 	ID         int    `json:"id" gorm:"primaryKey"`
 	Name       string `json:"name"`
 	Kecamatan  string `json:"kecamatan"`

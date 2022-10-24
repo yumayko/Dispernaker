@@ -26,7 +26,7 @@ func InitDB(conf config.Config) *gorm.DB {
 	}
 
 	err = DB.AutoMigrate(
-		&model.Sertifikat{},
+		&model.Sertificate{},
 	)
 	if err != nil {
 		fmt.Print("error migrating table : ", err)

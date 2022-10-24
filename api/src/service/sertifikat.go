@@ -11,19 +11,19 @@ type sertService struct {
 	repo domain.SertRepoAdapter
 }
 
-func (rs *sertService) CreateSertService(sert model.Sertifikat) (id int, err error) {
+func (rs *sertService) CreateSertService(sert model.Sertificate) (id int, err error) {
 	return rs.repo.CreateSert(sert)
 }
 
-func (rs *sertService) GetSertsService() (serts []model.Sertifikat, err error) {
+func (rs *sertService) GetSertsService() (serts []model.Sertificate, err error) {
 	return rs.repo.GetSerts()
 }
 
-func (rs *sertService) GetSertByIDService(id int) (sert model.Sertifikat, err error) {
+func (rs *sertService) GetSertByIDService(id int) (sert model.Sertificate, err error) {
 	return rs.repo.GetSertByID(id)
 }
 
-func (rs *sertService) UpdateSertService(sert model.Sertifikat, id int) error {
+func (rs *sertService) UpdateSertService(sert model.Sertificate, id int) error {
 	return rs.repo.UpdateSert(sert, id)
 }
 
