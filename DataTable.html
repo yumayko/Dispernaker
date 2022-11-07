@@ -9,6 +9,10 @@
         <!-- =====BOX ICONS===== -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
+        <!-- =====Bootstrap 5===== -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"> 
+
         <title>DISPERINAKER</title>
     </head>
     <body>
@@ -54,32 +58,40 @@
                                         <button class="button" id="button-addData">Add Data</button>
                                     </div>
                                 </div>
-                                <table class="table">
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Kecamatan</th>
-                                        <th>Pelatihan</th>
-                                        <th>Keterangan</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Andi</td>
-                                        <td>Bojong</td>
-                                        <td>Web Design</td>
-                                        <td>Belum Lulus</td>
-                                        <td>
-                                            <button class="button-edit" id="button-edit">Edit</button>
-                                            <button class="button-delete" id="button-delete">Hapus</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Budi</td>
-                                        <td>Bojong</td>
-                                        <td>Web Design</td>
-                                        <td>Belum Lulus</td>
+                                <table id="example" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Andi</td>
+                                            <td>Bojong</td>
+                                            <td>Web Design</td>
+                                            <td>Belum Lulus</td>
+                                            <td>
+                                                <button class="button-edit" id="button-edit">Edit</button>
+                                                <button class="button-delete" id="button-delete">Hapus</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Budi</td>
+                                            <td>Bojong</td>
+                                            <td>Web Design</td>
+                                            <td>Belum Lulus</td>
+                                            <td>
+                                                <button class="button-edit" id="button-edit">Edit</button>
+                                                <button class="button-delete" id="button-delete">Hapus</button>
+                                            </td>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -100,32 +112,40 @@
                                         <button class="button" id="button-addData">Add Data</button>
                                     </div>
                                 </div>
-                                <table class="table">
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Kecamatan</th>
-                                        <th>Pelatihan</th>
-                                        <th>Keterangan</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Andi</td>
-                                        <td>Bojong</td>
-                                        <td>Web Design</td>
-                                        <td>Belum Lulus</td>
-                                        <td>
-                                            <button class="button-edit" id="button-edit">Edit</button>
-                                            <button class="button-delete" id="button-delete">Hapus</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Budi</td>
-                                        <td>Bojong</td>
-                                        <td>Web Design</td>
-                                        <td>Belum Lulus</td>
+                                <table id="example" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Andi</td>
+                                            <td>Bojong</td>
+                                            <td>Web Design</td>
+                                            <td>Belum Lulus</td>
+                                            <td>
+                                                <button class="button-edit" id="button-edit">Edit</button>
+                                                <button class="button-delete" id="button-delete">Hapus</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Budi</td>
+                                            <td>Bojong</td>
+                                            <td>Web Design</td>
+                                            <td>Belum Lulus</td>
+                                            <td>
+                                                <button class="button-edit" id="button-edit">Edit</button>
+                                                <button class="button-delete" id="button-delete">Hapus</button>
+                                            </td>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -146,32 +166,19 @@
                                         <button class="button" id="button-addData">Add Data</button>
                                     </div>
                                 </div>
-                                <table class="table">
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Kecamatan</th>
-                                        <th>Pelatihan</th>
-                                        <th>Keterangan</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Andi</td>
-                                        <td>Bojong</td>
-                                        <td>Web Design</td>
-                                        <td>Belum Lulus</td>
-                                        <td>
-                                            <button class="button-edit" id="button-edit">Edit</button>
-                                            <button class="button-delete" id="button-delete">Hapus</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Budi</td>
-                                        <td>Bojong</td>
-                                        <td>Web Design</td>
-                                        <td>Belum Lulus</td>
+                                <table id="example" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Name</th>
+                                            <th>Kecamatan</th>
+                                            <th>Pelatihan</th>
+                                            <th>Keterangan</th>
+                                            <th colspan="2">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -192,32 +199,40 @@
                                         <button class="button" id="button-addData">Add Data</button>
                                     </div>
                                 </div>
-                                <table class="table">
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Kecamatan</th>
-                                        <th>Pelatihan</th>
-                                        <th>Keterangan</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Andi</td>
-                                        <td>Bojong</td>
-                                        <td>Web Design</td>
-                                        <td>Belum Lulus</td>
-                                        <td>
-                                            <button class="button-edit" id="button-edit">Edit</button>
-                                            <button class="button-delete" id="button-delete">Hapus</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Budi</td>
-                                        <td>Bojong</td>
-                                        <td>Web Design</td>
-                                        <td>Belum Lulus</td>
+                                <table id="example" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Andi</td>
+                                            <td>Bojong</td>
+                                            <td>Web Design</td>
+                                            <td>Belum Lulus</td>
+                                            <td>
+                                                <button class="button-edit" id="button-edit">Edit</button>
+                                                <button class="button-delete" id="button-delete">Hapus</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Budi</td>
+                                            <td>Bojong</td>
+                                            <td>Web Design</td>
+                                            <td>Belum Lulus</td>
+                                            <td>
+                                                <button class="button-edit" id="button-edit">Edit</button>
+                                                <button class="button-delete" id="button-delete">Hapus</button>
+                                            </td>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -228,7 +243,7 @@
                 <div class="popup-content">
                     <h3 class="popup-title">Add Data</h3>
                     <button class="close-button" id="close-button">X</button>
-                    <div class="popup-body">
+                    <form class="popup-body">
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" name="nama" id="nama" placeholder="Masukkan Nama" required>
@@ -261,8 +276,8 @@
                             <label for="tempatlahir">Tempat Lahir</label>
                             <input type="text" name="tempatlahir" id="tempatlahir" placeholder="Masukkan Tempat Lahir" required>
                         </div>
-                    </div>
-                    <button class="submit-button" id="submit">submit</button>
+                        <button class="submit-button" id="submit">submit</button>
+                    </form>
                 </div>
             </div>
         </main>
@@ -280,6 +295,15 @@
         <script src="assets/js/main.js"></script>
         <script src="assets/js/feature.js"></script>
         <script src="assets/js/consumeAPI.js"></script>
-        </main>
+
+        <!--===== bootstrap 5 =====-->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+        </script>
     </body>
 </html>
