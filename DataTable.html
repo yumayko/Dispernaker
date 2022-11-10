@@ -177,7 +177,7 @@
                                             <th colspan="2">Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="tbody">
+                                    <tbody id="tbody" class="t-body">
                                     </tbody>
                                 </table>
                             </div>
@@ -285,9 +285,8 @@
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
         <script>
-            const id = document.querySelectorAll('#example');
             $(document).ready(function () {
-                $(id).DataTable();
+                $('[id="example"]').DataTable();
             });
         </script>
     </body>
