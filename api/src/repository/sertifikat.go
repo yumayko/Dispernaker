@@ -43,12 +43,12 @@ func (r *repoSert) GetSertByID(id int) (sert model.Sertificate, err error) {
 }
 
 func (r *repoSert) UpdateSert(sert model.Sertificate, id int) error {
-	temp := model.Sertificate{}
-	temp.ID = id
+	sert.ID = id
 
 	res := r.DB.
 		Debug().
-		Save(&temp)
+		Where("id = ?", id).
+		UpdateColumns(&sert)
 	if res.RowsAffected < 1 {
 		return res.Error
 	}
