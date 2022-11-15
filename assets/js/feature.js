@@ -14,6 +14,11 @@ document.getElementById('close-button').addEventListener('click', function() {
     
     if(document.querySelector('.popup').style.display === 'none') {
         document.querySelector('body').style.overflow = 'auto';
+
+        document.getElementById('nama').value = '';
+        document.getElementById('kecamatan').value = '';
+        document.getElementById('pelatihan').value = '';
+        document.getElementById('keterangan').value = '';
     }
 });
 
