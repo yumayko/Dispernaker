@@ -135,7 +135,7 @@ img {
   .nav__menu {
     position: fixed;
     top: var(--header-height);
-    right: -100%;
+    right: 100%;
     width: 80%;
     height: 100%;
     padding: 2rem;
