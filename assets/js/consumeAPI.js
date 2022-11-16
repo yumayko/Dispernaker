@@ -63,7 +63,7 @@ addForm.addEventListener('submit', (e) => {
         const dataArr = [];
         dataArr.push(data.data);
         GetData(dataArr);
-        //location.reload();
+        location.reload();
     })
 });
 
@@ -120,7 +120,6 @@ classData.addEventListener('click', (e) => {
             })
         })
         .then(response => response.json())
-        .then(data => console.log(data))
-        //.then(data => console.log(data))
+        .then(data => location.reload())
     })
 });
