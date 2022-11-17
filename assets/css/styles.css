@@ -196,7 +196,7 @@ img {
 /*===== HOME =====*/
 .home {
   position: relative;
-  row-gap: 1.5rem;
+  row-gap: 23rem;
   padding: 3rem 0 1rem;
 }
 
@@ -206,6 +206,12 @@ img {
 
 .home__title {
   font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.home__chart {
+  font-size: 20px;
   margin-bottom: 10px;
   text-align: center;
 }
