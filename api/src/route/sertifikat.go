@@ -21,7 +21,7 @@ func RegisterSertGroupAPI(e *echo.Echo, conf config.Config) {
 		SertServ: svc,
 	}
 
-	apiSert := e.Group("/sertificate")
+	apiSert := e.Group("/sertificate/calon")
 
 	apiSert.POST("", cont.CreateSertController)
 	apiSert.GET("/all", cont.GetSertsController)

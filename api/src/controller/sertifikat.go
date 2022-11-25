@@ -14,7 +14,7 @@ type SertServiceController struct {
 }
 
 func (sc *SertServiceController) CreateSertController(c echo.Context) error {
-	sert := model.Sertificate{}
+	sert := model.CalonSertificate{}
 	c.Bind(&sert)
 
 	_, err := sc.SertServ.CreateSertService(sert)
@@ -74,7 +74,7 @@ func (sc *SertServiceController) GetSertByIDController(c echo.Context) error {
 func (sc *SertServiceController) UpdateSertController(c echo.Context) error {
 	id := c.Param("id")
 	intID, _ := strconv.ParseInt(id, 10, 64)
-	sert := model.Sertificate{}
+	sert := model.CalonSertificate{}
 	sert.ID = int(intID)
 	c.Bind(&sert)
 

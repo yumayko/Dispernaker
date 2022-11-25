@@ -26,7 +26,11 @@ func InitDB(conf config.Config) *gorm.DB {
 	}
 
 	err = DB.AutoMigrate(
-		&model.Sertificate{},
+		&model.CalonSertificate{},
+		&model.PesertaSertificate{},
+
+		&model.CalonTraining{},
+		&model.PesertaSertificate{},
 	)
 	if err != nil {
 		fmt.Print("error migrating table : ", err)
