@@ -3,9 +3,9 @@ package domain
 import "disperinaker-api/model"
 
 type SertServiceAdapter interface {
-	CreateSertService(sert model.CalonSertificate) (id int, err error)
-	GetSertsService() (serts []model.CalonSertificate, err error)
-	GetSertByIDService(id int) (sert model.CalonSertificate, err error)
-	UpdateSertService(sert model.CalonSertificate, id int) error
-	DeleteSertService(id int) error
+	CreateCalSertService(sert model.CalonSertificate) (id int, err error)
+	GetCalSertsService() (serts []model.CalonSertificate, err error)
+	GetCalSertByIDService(id int) (sert model.CalonSertificate, err error)
+	UpdateCalSertService(sert model.CalonSertificate, id int) error
+	DeleteCalSertService(id int) error
 }

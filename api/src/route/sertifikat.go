@@ -23,9 +23,9 @@ func RegisterSertGroupAPI(e *echo.Echo, conf config.Config) {
 
 	apiSert := e.Group("/sertificate/calon")
 
-	apiSert.POST("", cont.CreateSertController)
-	apiSert.GET("/all", cont.GetSertsController)
-	apiSert.GET("/:id", cont.GetSertByIDController)
-	apiSert.PUT("/:id", cont.UpdateSertController)
-	apiSert.DELETE("/:id", cont.DeleteSertController)
+	apiSert.POST("", cont.CreateCalSertController)
+	apiSert.GET("/all", cont.GetCalSertsController)
+	apiSert.GET("/:id", cont.GetCalSertByIDController)
+	apiSert.PUT("/:id", cont.UpdateCalSertController)
+	apiSert.DELETE("/:id", cont.DeleteCalSertController)
 }

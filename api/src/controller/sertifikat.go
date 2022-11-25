@@ -13,11 +13,11 @@ type SertServiceController struct {
 	SertServ domain.SertServiceAdapter
 }
 
-func (sc *SertServiceController) CreateSertController(c echo.Context) error {
+func (sc *SertServiceController) CreateCalSertController(c echo.Context) error {
 	sert := model.CalonSertificate{}
 	c.Bind(&sert)
 
-	_, err := sc.SertServ.CreateSertService(sert)
+	_, err := sc.SertServ.CreateCalSertService(sert)
 	if err != nil {
 		return c.JSONPretty(http.StatusInternalServerError, model.Response{
 			Code:    http.StatusInternalServerError,
@@ -33,8 +33,8 @@ func (sc *SertServiceController) CreateSertController(c echo.Context) error {
 	}, "\t")
 }
 
-func (sc *SertServiceController) GetSertsController(c echo.Context) error {
-	serts, err := sc.SertServ.GetSertsService()
+func (sc *SertServiceController) GetCalSertsController(c echo.Context) error {
+	serts, err := sc.SertServ.GetCalSertsService()
 
 	if err != nil {
 		return c.JSONPretty(http.StatusInternalServerError, model.Response{
@@ -51,10 +51,10 @@ func (sc *SertServiceController) GetSertsController(c echo.Context) error {
 	}, "\t")
 }
 
-func (sc *SertServiceController) GetSertByIDController(c echo.Context) error {
+func (sc *SertServiceController) GetCalSertByIDController(c echo.Context) error {
 	id := c.Param("id")
 	intID, _ := strconv.ParseInt(id, 10, 64)
-	sert, err := sc.SertServ.GetSertByIDService(int(intID))
+	sert, err := sc.SertServ.GetCalSertByIDService(int(intID))
 
 	if err != nil {
 		return c.JSONPretty(http.StatusInternalServerError, model.Response{
@@ -71,14 +71,14 @@ func (sc *SertServiceController) GetSertByIDController(c echo.Context) error {
 	}, "\t")
 }
 
-func (sc *SertServiceController) UpdateSertController(c echo.Context) error {
+func (sc *SertServiceController) UpdateCalSertController(c echo.Context) error {
 	id := c.Param("id")
 	intID, _ := strconv.ParseInt(id, 10, 64)
 	sert := model.CalonSertificate{}
 	sert.ID = int(intID)
 	c.Bind(&sert)
 
-	err := sc.SertServ.UpdateSertService(sert, int(intID))
+	err := sc.SertServ.UpdateCalSertService(sert, int(intID))
 	if err != nil {
 		return c.JSONPretty(http.StatusInternalServerError, model.Response{
 			Code:    http.StatusInternalServerError,
@@ -94,11 +94,11 @@ func (sc *SertServiceController) UpdateSertController(c echo.Context) error {
 	}, "\t")
 }
 
-func (sc *SertServiceController) DeleteSertController(c echo.Context) error {
+func (sc *SertServiceController) DeleteCalSertController(c echo.Context) error {
 	id := c.Param("id")
 	intID, _ := strconv.ParseInt(id, 10, 64)
 
-	err := sc.SertServ.DeleteSertService(int(intID))
+	err := sc.SertServ.DeleteCalSertService(int(intID))
 	if err != nil {
 		return c.JSONPretty(http.StatusInternalServerError, model.Response{
 			Code:    http.StatusInternalServerError,
