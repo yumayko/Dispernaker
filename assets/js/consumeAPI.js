@@ -3,6 +3,13 @@ const Vname = document.getElementById("nama");
 const Vkecamatan = document.getElementById("kecamatan");
 const Vpelatihan = document.getElementById("pelatihan");
 const Vketerangan = document.getElementById("keterangan");
+const V2name = document.getElementById("namaEdit");
+const V2kecamatan = document.getElementById("kecamatanEdit");
+const V2pelatihan = document.getElementById("pelatihanEdit");
+const V2keterangan = document.getElementById("keteranganEdit");
+const addForm = document.querySelector('.popup-body');
+const submitEdit = document.querySelector(".edit-button");
+
 let data = "";
 const GetData = (posts) => {
     let i = 1;
@@ -41,7 +48,6 @@ fetch("http://localhost:8888/sertificate/all")
 });
 
 // post data (create data)
-const addForm = document.querySelector('.popup-body');
 addForm.addEventListener('submit', (e) => {
     e.preventDefault();
     let payload = postData();
@@ -62,7 +68,6 @@ addForm.addEventListener('submit', (e) => {
 });
 
 // edit & delete data
-const submitEdit = document.querySelector(".submit-button");
 const classData = document.querySelector('.t-body');
 classData.addEventListener('click', (e) => {
     e.preventDefault();
@@ -79,36 +84,42 @@ classData.addEventListener('click', (e) => {
 
     // edit data
     if(e.target.classList.contains('button-edit')){
-        document.querySelector('.popup').style.display = 'flex';
+        document.querySelector('.popupEdit').style.display = 'flex';
     
-        if(document.querySelector('.popup').style.display === 'flex') {
+        if(document.querySelector('.popupEdit').style.display === 'flex') {
             document.querySelector('body').style.overflow = 'hidden';
+            console.log(id)
             const parent = e.target.parentElement.parentElement;
             let name = parent.querySelector('.name').textContent;
             let kecamatan = parent.querySelector('.kecamatan').textContent;
             let pelatihan = parent.querySelector('.pelatihan').textContent;
             let keterangan = parent.querySelector('.keterangan').textContent;
     
-            Vname.value = name;
-            Vkecamatan.value = kecamatan;
-            Vpelatihan.value = pelatihan;
-            Vketerangan.value = keterangan;
+            V2name.value = name;
+            V2kecamatan.value = kecamatan;
+            V2pelatihan.value = pelatihan;
+            V2keterangan.value = keterangan;
         }
     }
-    submitEdit.addEventListener('click', () => {
-        fetch(`http://localhost:8888/sertificate/${id}`, {
+    console.log(V2name.value);
+    console.log(V2kecamatan.value);
+    console.log(V2pelatihan.value);
+    console.log(V2keterangan.value);
+    submitEdit.addEventListener('click', (a) => {
+        a.preventDefault();
+        fetch(`http://localhost:8888/sertificate/${id}`,{
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
             },
             body: JSON.stringify({
-                name: Vname.value,
-                kecamatan: Vkecamatan.value,
-                pelatihan: Vpelatihan.value,
-                keterangan: Vketerangan.value
+                name: V2name.value,
+                kecamatan: V2kecamatan.value,
+                pelatihan: V2pelatihan.value,
+                keterangan: V2keterangan.value
             })
         })
         .then(response => response.json())
-        .then(() => location.reload())
+        .then(data => location.reload())
     })
 });

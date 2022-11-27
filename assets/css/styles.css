@@ -135,7 +135,7 @@ img {
   .nav__menu {
     position: fixed;
     top: var(--header-height);
-    right: -100%;
+    right: 100%;
     width: 80%;
     height: 100%;
     padding: 2rem;
@@ -196,7 +196,7 @@ img {
 /*===== HOME =====*/
 .home {
   position: relative;
-  row-gap: 1.5rem;
+  row-gap: 23rem;
   padding: 3rem 0 1rem;
 }
 
@@ -206,6 +206,12 @@ img {
 
 .home__title {
   font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.home__chart {
+  font-size: 20px;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -298,7 +304,7 @@ img {
   text-align: center;
 }
 /* ==== PopUp ==== */
-.popup {
+.popup, .popupEdit {
   position: fixed;
   top: 0;
   width: 100%;
@@ -367,7 +373,7 @@ img {
 .form-group input:is(:focus, :valid){
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
-.submit-button{
+.submit-button, .edit-button{
   width: 100%;
   padding: 10px 0;
   background-color: #2ecc71;

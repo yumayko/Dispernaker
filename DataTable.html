@@ -10,7 +10,7 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- =====Bootstrap 5===== -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">-->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"> 
 
         <title>DISPERINAKER</title>
@@ -20,7 +20,7 @@
         <header class="l-header">
             <nav class="nav bd-grid">
                 <div>
-                    <a href="#" class="nav__logo">DISPERINAKER</a>
+                    <a href="index.html" class="nav__logo">DISPERINAKER</a>
                 </div>
 
                 <div class="nav__menu" id="nav-menu">
@@ -261,6 +261,32 @@
                             <input type="text" name="keterangan" id="keterangan" placeholder="Keterangan" required>
                         </div>
                         <button class="submit-button" id="submit">submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="popupEdit">
+                <div class="popup-content">
+                    <h3 class="popup-title">Edit Data</h3>
+                    <button class="close-button" id="close-button">X</button>
+                    <form class="popup-body">
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text" name="nama" id="namaEdit" placeholder="Masukkan Nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kecamatan">Kecamatan</label>
+                            <input type="text" name="kecamatan" id="kecamatanEdit" placeholder="Masukkan Kecamatan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pelatihan">Pelatihan</label>
+                            <input type="text" name="pelatihan" id="pelatihanEdit" placeholder="Jenis Pelatihan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="keterangan">Keterangan</label>
+                            <input type="text" name="keterangan" id="keteranganEdit" placeholder="Keterangan" required>
+                        </div>
+                        <button class="edit-button" id="edit">edit</button>
                     </form>
                 </div>
             </div>
