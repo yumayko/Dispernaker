@@ -25,6 +25,12 @@ func InitDB(conf config.Config) *gorm.DB {
 		fmt.Println("error opening connection : ", err)
 	}
 
+	if DB.Migrator().HasTable(&model.CalonSertificate{}) == false {
+		if DB.Migrator().HasTable("sertificates") {
+			err = DB.Migrator().RenameTable("sertificates", &model.CalonSertificate{})
+		}
+	}
+
 	err = DB.AutoMigrate(
 		&model.CalonSertificate{},
 		&model.PesertaSertificate{},

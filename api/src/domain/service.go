@@ -15,3 +15,17 @@ type SertServiceAdapter interface {
 	UpdatePesSertService(sert model.PesertaSertificate, id int) error
 	DeletePesSertService(id int) error
 }
+
+type TrainServiceAdapter interface {
+	CreateCalTrainService(train model.CalonTraining) (id int, err error)
+	GetCalTrainsService() (trains []model.CalonTraining, err error)
+	GetCalTrainByIDService(id int) (train model.CalonTraining, err error)
+	UpdateCalTrainService(train model.CalonTraining, id int) error
+	DeleteCalTrainService(id int) error
+
+	CreatePesTrainService(train model.PesertaTraining) (id int, err error)
+	GetPesTrainsService() (trains []model.PesertaTraining, err error)
+	GetPesTrainByIDService(id int) (train model.PesertaTraining, err error)
+	UpdatePesTrainService(train model.PesertaTraining, id int) error
+	DeletePesTrainService(id int) error
+}

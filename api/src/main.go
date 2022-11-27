@@ -16,6 +16,7 @@ func main() {
 
 	route.HealthAPI(e, conf)
 	route.RegisterSertGroupAPI(e, conf)
+	route.RegisterTrainGroupAPI(e, conf)
 
 	e.Logger.Fatal(e.Start(config.InitConfiguration().SERVER_ADDRESS))
 }

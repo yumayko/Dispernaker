@@ -15,3 +15,17 @@ type SertRepoAdapter interface {
 	UpdatePesSert(sert model.PesertaSertificate, id int) error
 	DeletePesSert(id int) error
 }
+
+type TrainRepoAdapter interface {
+	CreateCalTrain(train model.CalonTraining) (id int, err error)
+	GetCalTrains() (trains []model.CalonTraining, err error)
+	GetCalTrainByID(id int) (train model.CalonTraining, err error)
+	UpdateCalTrain(train model.CalonTraining, id int) error
+	DeleteCalTrain(id int) error
+
+	CreatePesTrain(train model.PesertaTraining) (id int, err error)
+	GetPesTrains() (trains []model.PesertaTraining, err error)
+	GetPesTrainByID(id int) (train model.PesertaTraining, err error)
+	UpdatePesTrain(train model.PesertaTraining, id int) error
+	DeletePesTrain(id int) error
+}
