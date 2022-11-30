@@ -1,4 +1,3 @@
-const tbody = document.getElementById("tbody");
 const Vname = document.getElementById("nama");
 const Vkecamatan = document.getElementById("kecamatan");
 const Vpelatihan = document.getElementById("pelatihan");
@@ -10,8 +9,8 @@ const V2keterangan = document.getElementById("keteranganEdit");
 const addForm = document.querySelector('.popup-body');
 const submitEdit = document.querySelector(".edit-button");
 
-let data = "";
-const GetData = (posts) => {
+const GetData = (posts) =>{
+    let data = "";
     let i = 1;
     posts.forEach((post) => {
         data += 
@@ -25,7 +24,10 @@ const GetData = (posts) => {
             <td><button class="button-delete" id="button-delete">Hapus</button></td>
         </tr>`;
     })
-    tbody.innerHTML = data;
+    document.getElementById("tbody").innerHTML = data;
+    $(document).ready(function () {
+        $('table.display').DataTable();
+    });
 };
 
 const postData = () => {
@@ -38,7 +40,7 @@ const postData = () => {
 };
 
 // get data
-fetch("http://localhost:8888/sertificate/all")
+fetch("http://localhost:8888/sertificate/calon/all")
 .then(response => response.json())
 .then(data => {
     const realData = data.data;

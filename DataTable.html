@@ -10,8 +10,8 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- =====Bootstrap 5===== -->
-        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">-->
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"> 
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"> 
 
         <title>DISPERINAKER</title>
     </head>
@@ -58,7 +58,7 @@
                                         <button class="button" id="button-addData">Add Data</button>
                                     </div>
                                 </div>
-                                <table id="example" class="table table-striped" style="width:100%">
+                                <table id="" class="display" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -112,7 +112,7 @@
                                         <button class="button" id="button-addData">Add Data</button>
                                     </div>
                                 </div>
-                                <table id="example" class="table table-striped" style="width:100%">
+                                <table id="" class="display" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -166,15 +166,19 @@
                                         <button class="button" id="button-addData">Add Data</button>
                                     </div>
                                 </div>
-                                <table id="example" class="table table-striped" style="width:100%">
+                                <table id="" class="display" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Name</th>
-                                            <th>Kecamatan</th>
-                                            <th>Pelatihan</th>
-                                            <th>Keterangan</th>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2">Name</th>
+                                            <th rowspan="2">Kecamatan</th>
+                                            <th rowspan="2">Pelatihan</th>
+                                            <th rowspan="2">Keterangan</th>
                                             <th colspan="2">Aksi</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Edit</th>
+                                            <th>Hapus</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tbody" class="t-body">
@@ -199,7 +203,7 @@
                                         <button class="button" id="button-addData">Add Data</button>
                                     </div>
                                 </div>
-                                <table id="example" class="table table-striped" style="width:100%">
+                                <table id="" class="display" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -308,12 +312,7 @@
 
         <!--===== bootstrap 5 =====-->
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('[id="example"]').DataTable();
-            });
-        </script>
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <!-- <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script> -->
     </body>
 </html>
