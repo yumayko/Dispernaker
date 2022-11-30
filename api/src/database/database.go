@@ -36,7 +36,7 @@ func InitDB(conf config.Config) *gorm.DB {
 		&model.PesertaSertificate{},
 
 		&model.CalonTraining{},
-		&model.PesertaSertificate{},
+		&model.PesertaTraining{},
 	)
 	if err != nil {
 		fmt.Print("error migrating table : ", err)
