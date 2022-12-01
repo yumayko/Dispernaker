@@ -47,7 +47,6 @@ for (let i = 0; i < closeAddData.length; i++) {
 // });
 
 const accordionItemHeaders = document.querySelectorAll(".acc-header");
-console.log(accordionItemHeaders);
 accordionItemHeaders.forEach(accordionItemHeader => {
     accordionItemHeader.addEventListener("click", event => {
     accordionItemHeader.classList.toggle("active");

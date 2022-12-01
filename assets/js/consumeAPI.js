@@ -9,7 +9,29 @@ const V2keterangan = document.getElementById("keteranganEdit");
 const addForm = document.querySelector('.popup-body');
 const submitEdit = document.querySelector(".edit-button");
 
-const GetData = (posts) =>{
+// DISPLAY DATA
+const url1 = fetch('http://localhost:8888/training/calon/all');
+const url2 = fetch('http://localhost:8888/training/peserta/all');
+const url3 = fetch('http://localhost:8888/sertificate/calon/all');
+const url4 = fetch('http://localhost:8888/sertificate/peserta/all');
+
+Promise.all([url1, url2, url3, url4])
+.then(responses => {
+    return Promise.all(responses.map(response => response.json()));
+}).then(([calonPel, pesertaPel, calonSert, pesertaSert]) => {
+    console.log(calonPel.data);
+    GetData1(calonPel.data);
+    console.log(pesertaPel.data);
+    GetData2(pesertaPel.data);
+    console.log(calonSert.data);
+    GetData3(calonSert.data);
+    console.log(pesertaSert.data);
+    GetData4(pesertaSert.data);
+}).catch(err => {
+    console.log(err);
+})
+
+const GetData1 = (posts) =>{
     let data = "";
     let i = 1;
     posts.forEach((post) => {
@@ -24,12 +46,73 @@ const GetData = (posts) =>{
             <td><button class="button-delete" id="button-delete">Hapus</button></td>
         </tr>`;
     })
-    document.getElementById("tbody").innerHTML = data;
+    document.getElementById("tbody1").innerHTML = data;
+    $(document).ready(function () {
+        $('table.display').DataTable();
+    });
+};
+const GetData2 = (posts) =>{
+    let data = "";
+    let i = 1;
+    posts.forEach((post) => {
+        data += 
+        `<tr data-id=${post.id}>
+            <td>${i++}</td>
+            <td class="name">${post.name}</td>
+            <td class="kecamatan">${post.kecamatan}</td>
+            <td class="pelatihan">${post.pelatihan}</td>
+            <td class="keterangan">${post.keterangan}</td>
+            <td><button class="button-edit" id="button-edit">Edit</button></td>
+            <td><button class="button-delete" id="button-delete">Hapus</button></td>
+        </tr>`;
+    })
+    document.getElementById("tbody2").innerHTML = data;
+    $(document).ready(function () {
+        $('table.display').DataTable();
+    });
+};
+const GetData3 = (posts) =>{
+    let data = "";
+    let i = 1;
+    posts.forEach((post) => {
+        data += 
+        `<tr data-id=${post.id}>
+            <td>${i++}</td>
+            <td class="name">${post.name}</td>
+            <td class="kecamatan">${post.kecamatan}</td>
+            <td class="pelatihan">${post.pelatihan}</td>
+            <td class="keterangan">${post.keterangan}</td>
+            <td><button class="button-edit" id="button-edit">Edit</button></td>
+            <td><button class="button-delete" id="button-delete">Hapus</button></td>
+        </tr>`;
+    })
+    document.getElementById("tbody3").innerHTML = data;
+    $(document).ready(function () {
+        $('table.display').DataTable();
+    });
+};
+const GetData4 = (posts) =>{
+    let data = "";
+    let i = 1;
+    posts.forEach((post) => {
+        data += 
+        `<tr data-id=${post.id}>
+            <td>${i++}</td>
+            <td class="name">${post.name}</td>
+            <td class="kecamatan">${post.kecamatan}</td>
+            <td class="pelatihan">${post.pelatihan}</td>
+            <td class="keterangan">${post.keterangan}</td>
+            <td><button class="button-edit" id="button-edit">Edit</button></td>
+            <td><button class="button-delete" id="button-delete">Hapus</button></td>
+        </tr>`;
+    })
+    document.getElementById("tbody4").innerHTML = data;
     $(document).ready(function () {
         $('table.display').DataTable();
     });
 };
 
+// post data (create data)
 const postData = () => {
     return{
         name: Vname.value,
@@ -39,17 +122,6 @@ const postData = () => {
     }
 };
 
-// get data
-fetch("http://localhost:8888/sertificate/calon/all")
-.then(response => response.json())
-.then(data => {
-    const realData = data.data;
-    console.log(data);
-    console.log(realData);
-    GetData(realData);
-});
-
-// post data (create data)
 addForm.addEventListener('submit', (e) => {
     e.preventDefault();
     let payload = postData();
