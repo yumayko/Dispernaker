@@ -1,12 +1,7 @@
-const Vname = document.getElementById("nama");
-const Vkecamatan = document.getElementById("kecamatan");
-const Vpelatihan = document.getElementById("pelatihan");
-const Vketerangan = document.getElementById("keterangan");
 const V2name = document.getElementById("namaEdit");
 const V2kecamatan = document.getElementById("kecamatanEdit");
 const V2pelatihan = document.getElementById("pelatihanEdit");
 const V2keterangan = document.getElementById("keteranganEdit");
-const addForm = document.querySelector('.popup-body');
 const submitEdit = document.querySelector(".edit-button");
 
 // DISPLAY DATA
@@ -113,6 +108,10 @@ const GetData4 = (posts) =>{
 };
 
 // post data (create data)
+const Vname = document.getElementById("nama");
+const Vkecamatan = document.getElementById("kecamatan");
+const Vpelatihan = document.getElementById("pelatihan");
+const Vketerangan = document.getElementById("keterangan");
 const postData = () => {
     return{
         name: Vname.value,
@@ -122,24 +121,88 @@ const postData = () => {
     }
 };
 
-addForm.addEventListener('submit', (e) => {
+const addForm = document.querySelector('.popup-body');
+addForm.addEventListener('click', async (e) => {
     e.preventDefault();
     let payload = postData();
-    fetch("http://localhost:8888/sertificate", {
-        method: 'POST',
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body: JSON.stringify(payload)
-    })
-    .then(response => response.json())
-    .then(data => {
-        const dataArr = [];
-        dataArr.push(data.data);
-        GetData(dataArr);
-        location.reload();
-    })
+    if(e.target.id==='submit-calonPel'){
+        await postcalonPel(payload);
+    }
+    if(e.target.id==='submit-pesertaPel'){
+        await postpesertaPel(payload);
+    }
+    if(e.target.id==='submit-calonSert'){
+        await postcalonSert(payload);
+    }
+    if(e.target.id==='submit-pesertaSert'){
+        await postpesertaSert(payload);
+    }
 });
+
+function postcalonPel(postData){
+    return fetch("http://localhost:8888/training/calon", {
+            method: 'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(postData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            const dataArr = [];
+            dataArr.push(data.data);
+            GetData1(dataArr);
+            location.reload();
+        })
+}
+function postpesertaPel(postData){
+    return fetch("http://localhost:8888/training/peserta", {
+            method: 'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(postData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            const dataArr = [];
+            dataArr.push(data.data);
+            GetData2(dataArr);
+            location.reload();
+        })
+}
+function postcalonSert(postData){
+    return fetch("http://localhost:8888/sertificate/calon", {
+            method: 'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(postData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            const dataArr = [];
+            dataArr.push(data.data);
+            GetData3(dataArr);
+            location.reload();
+        })
+}
+function postpesertaSert(postData){
+    return fetch("http://localhost:8888/sertificate/peserta", {
+            method: 'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(postData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            const dataArr = [];
+            dataArr.push(data.data);
+            GetData4(dataArr);
+            location.reload();
+        })
+}
 
 // edit & delete data
 const classData = document.querySelector('.t-body');
