@@ -206,26 +206,30 @@ function postpesertaSert(postData){
 
 // edit & delete data
 const classData = document.querySelector('.t-body');
-classData.addEventListener('click', (e) => {
-    e.preventDefault();
+document.addEventListener('click', (e) => {
+    let id = e.target.parentElement.parentElement.dataset.id;
 
     // delete data
-    let id = e.target.parentElement.parentElement.dataset.id;
     if(e.target.classList.contains('button-delete')){
-        fetch(`http://localhost:8888/sertificate/${id}`, {
-            method: 'DELETE',
-        })
-        .then(response => response.json())
-        .then(() => location.reload())
+        if(e.target.parentElement.parentElement.parentElement.id==='tbody1'){
+            deletecalonPel(id);
+        }
+        if(e.target.parentElement.parentElement.parentElement.id==='tbody2'){
+            deletepesertaPel(id);
+        }
+        if(e.target.parentElement.parentElement.parentElement.id==='tbody3'){
+            deletecalonSert(id);
+        }
+        if(e.target.parentElement.parentElement.parentElement.id==='tbody4'){
+            deletepesertaSert(id);
+        }
     }
 
     // edit data
     if(e.target.classList.contains('button-edit')){
-        document.querySelector('.popupEdit').style.display = 'flex';
-    
-        if(document.querySelector('.popupEdit').style.display === 'flex') {
+        const popupEdit = document.querySelector('.popupEdit').style.display = 'flex';
+        if(popupEdit === 'flex') {
             document.querySelector('body').style.overflow = 'hidden';
-            console.log(id)
             const parent = e.target.parentElement.parentElement;
             let name = parent.querySelector('.name').textContent;
             let kecamatan = parent.querySelector('.kecamatan').textContent;
@@ -238,13 +242,56 @@ classData.addEventListener('click', (e) => {
             V2keterangan.value = keterangan;
         }
     }
-    console.log(V2name.value);
-    console.log(V2kecamatan.value);
-    console.log(V2pelatihan.value);
-    console.log(V2keterangan.value);
     submitEdit.addEventListener('click', (a) => {
         a.preventDefault();
-        fetch(`http://localhost:8888/sertificate/${id}`,{
+        if(e.target.parentElement.parentElement.parentElement.id==='tbody1'){
+            editcalonPel(id);
+        }
+        if(e.target.parentElement.parentElement.parentElement.id==='tbody2'){
+            editpesertaPel(id);
+        }
+        if(e.target.parentElement.parentElement.parentElement.id==='tbody3'){
+            editcalonSert(id);
+        }
+        if(e.target.parentElement.parentElement.parentElement.id==='tbody4'){
+            editpesertaSert(id);
+        }
+    })
+});
+
+//fetch delete data
+function deletecalonPel(idDelete){
+    return fetch("http://localhost:8888/training/calon/" + (idDelete), {
+            method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(() => location.reload())
+}
+function deletepesertaPel(idDelete){
+    return fetch("http://localhost:8888/training/peserta/" + (idDelete), {
+            method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(() => location.reload())
+}
+function deletecalonSert(idDelete){
+    return fetch("http://localhost:8888/sertificate/calon/" + (idDelete), {
+            method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(() => location.reload())
+}
+function deletepesertaSert(idDelete){
+    return fetch("http://localhost:8888/sertificate/peserta/" + (idDelete), {
+            method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(() => location.reload())
+}
+
+//fetch edit data
+function editcalonPel(idEdit){
+    return fetch("http://localhost:8888/training/calon/" + (idEdit), {
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
@@ -258,5 +305,52 @@ classData.addEventListener('click', (e) => {
         })
         .then(response => response.json())
         .then(data => location.reload())
-    })
-});
+}
+function editpesertaPel(idEdit){
+    return fetch("http://localhost:8888/training/peserta/" + (idEdit), {
+            method: 'PUT',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                name: V2name.value,
+                kecamatan: V2kecamatan.value,
+                pelatihan: V2pelatihan.value,
+                keterangan: V2keterangan.value
+            })
+        })
+        .then(response => response.json())
+        .then(data => location.reload())
+}
+function editcalonSert(idEdit){
+    return fetch("http://localhost:8888/sertificate/calon/" + (idEdit), {
+            method: 'PUT',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                name: V2name.value,
+                kecamatan: V2kecamatan.value,
+                pelatihan: V2pelatihan.value,
+                keterangan: V2keterangan.value
+            })
+        })
+        .then(response => response.json())
+        .then(data => location.reload())
+}
+function editpesertaSert(idEdit){
+    return fetch("http://localhost:8888/sertificate/peserta/" + (idEdit), {
+            method: 'PUT',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                name: V2name.value,
+                kecamatan: V2kecamatan.value,
+                pelatihan: V2pelatihan.value,
+                keterangan: V2keterangan.value
+            })
+        })
+        .then(response => response.json())
+        .then(data => location.reload())
+}

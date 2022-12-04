@@ -60,3 +60,13 @@ accordionItemHeaders.forEach(accordionItemHeader => {
     
     });
 });
+
+// const tb1 = document.getElementById('tbody1');
+// tb1.addEventListener('click', function(e) {
+//     if (e.target.classList.contains('button-edit')){
+//         document.getElementById("submit-calonPel").style.display = "block";
+//         document.getElementById("submit-pesertaPel").style.display = "none";
+//         document.getElementById("submit-calonSert").style.display = "none";
+//         document.getElementById("submit-pesertaSert").style.display = "none";
+//     }
+// })
