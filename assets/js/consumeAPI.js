@@ -5,10 +5,10 @@ const V2keterangan = document.getElementById("keteranganEdit");
 const submitEdit = document.querySelector(".edit-button");
 
 // DISPLAY DATA
-const url1 = fetch('http://localhost:8888/training/calon/all');
-const url2 = fetch('http://localhost:8888/training/peserta/all');
-const url3 = fetch('http://localhost:8888/sertificate/calon/all');
-const url4 = fetch('http://localhost:8888/sertificate/peserta/all');
+const url1 = fetch('http://localhost:8888/minat/peserta/all');
+const url2 = fetch('http://localhost:8888/pelatihan/peserta/all');
+const url3 = fetch('http://localhost:8888/sertifikasi/calon/all');
+const url4 = fetch('http://localhost:8888/sertifikasi/peserta/all');
 
 Promise.all([url1, url2, url3, url4])
 .then(responses => {
@@ -33,7 +33,7 @@ const GetData1 = (posts) =>{
         data += 
         `<tr data-id=${post.id}>
             <td>${i++}</td>
-            <td class="name">${post.name}</td>
+            <td class="name">${post.nama}</td>
             <td class="kecamatan">${post.kecamatan}</td>
             <td class="pelatihan">${post.pelatihan}</td>
             <td class="keterangan">${post.keterangan}</td>
@@ -53,7 +53,7 @@ const GetData2 = (posts) =>{
         data += 
         `<tr data-id=${post.id}>
             <td>${i++}</td>
-            <td class="name">${post.name}</td>
+            <td class="name">${post.nama}</td>
             <td class="kecamatan">${post.kecamatan}</td>
             <td class="pelatihan">${post.pelatihan}</td>
             <td class="keterangan">${post.keterangan}</td>
@@ -73,9 +73,10 @@ const GetData3 = (posts) =>{
         data += 
         `<tr data-id=${post.id}>
             <td>${i++}</td>
-            <td class="name">${post.name}</td>
+            <td class="name">${post.nama}</td>
             <td class="kecamatan">${post.kecamatan}</td>
             <td class="pelatihan">${post.pelatihan}</td>
+            <td class="pelatihan">${post.sertifikasi}</td>
             <td class="keterangan">${post.keterangan}</td>
             <td><button class="button-edit" id="button-edit">Edit</button></td>
             <td><button class="button-delete" id="button-delete">Hapus</button></td>
@@ -93,7 +94,7 @@ const GetData4 = (posts) =>{
         data += 
         `<tr data-id=${post.id}>
             <td>${i++}</td>
-            <td class="name">${post.name}</td>
+            <td class="name">${post.nama}</td>
             <td class="kecamatan">${post.kecamatan}</td>
             <td class="pelatihan">${post.pelatihan}</td>
             <td class="keterangan">${post.keterangan}</td>
@@ -126,10 +127,10 @@ addForm.addEventListener('click', async (e) => {
     e.preventDefault();
     let payload = postData();
     if(e.target.id==='submit-calonPel'){
-        await postcalonPel(payload);
+        await postMinat(payload);
     }
     if(e.target.id==='submit-pesertaPel'){
-        await postpesertaPel(payload);
+        await postPelatihan(payload);
     }
     if(e.target.id==='submit-calonSert'){
         await postcalonSert(payload);
@@ -139,8 +140,8 @@ addForm.addEventListener('click', async (e) => {
     }
 });
 
-function postcalonPel(postData){
-    return fetch("http://localhost:8888/training/calon", {
+function postMinat(postData){
+    return fetch("http://localhost:8888/minat/peserta", {
             method: 'POST',
             headers:{
                 "Content-Type":"application/json"
@@ -155,8 +156,8 @@ function postcalonPel(postData){
             location.reload();
         })
 }
-function postpesertaPel(postData){
-    return fetch("http://localhost:8888/training/peserta", {
+function postPelatihan(postData){
+    return fetch("http://localhost:8888/pelatihan/peserta", {
             method: 'POST',
             headers:{
                 "Content-Type":"application/json"
@@ -172,7 +173,7 @@ function postpesertaPel(postData){
         })
 }
 function postcalonSert(postData){
-    return fetch("http://localhost:8888/sertificate/calon", {
+    return fetch("http://localhost:8888/sertifikasi/calon", {
             method: 'POST',
             headers:{
                 "Content-Type":"application/json"
@@ -188,7 +189,7 @@ function postcalonSert(postData){
         })
 }
 function postpesertaSert(postData){
-    return fetch("http://localhost:8888/sertificate/peserta", {
+    return fetch("http://localhost:8888/sertifikasi/peserta", {
             method: 'POST',
             headers:{
                 "Content-Type":"application/json"
@@ -212,10 +213,10 @@ document.addEventListener('click', (e) => {
     // delete data
     if(e.target.classList.contains('button-delete')){
         if(e.target.parentElement.parentElement.parentElement.id==='tbody1'){
-            deletecalonPel(id);
+            deleteMinat(id);
         }
         if(e.target.parentElement.parentElement.parentElement.id==='tbody2'){
-            deletepesertaPel(id);
+            deletePelatihan(id);
         }
         if(e.target.parentElement.parentElement.parentElement.id==='tbody3'){
             deletecalonSert(id);
@@ -245,10 +246,10 @@ document.addEventListener('click', (e) => {
     submitEdit.addEventListener('click', (a) => {
         a.preventDefault();
         if(e.target.parentElement.parentElement.parentElement.id==='tbody1'){
-            editcalonPel(id);
+            editMinat(id);
         }
         if(e.target.parentElement.parentElement.parentElement.id==='tbody2'){
-            editpesertaPel(id);
+            editPelatihan(id);
         }
         if(e.target.parentElement.parentElement.parentElement.id==='tbody3'){
             editcalonSert(id);
@@ -260,29 +261,29 @@ document.addEventListener('click', (e) => {
 });
 
 //fetch delete data
-function deletecalonPel(idDelete){
-    return fetch("http://localhost:8888/training/calon/" + (idDelete), {
+function deleteMinat(idDelete){
+    return fetch("http://localhost:8888/minat/peserta/" + (idDelete), {
             method: 'DELETE',
         })
         .then(response => response.json())
         .then(() => location.reload())
 }
-function deletepesertaPel(idDelete){
-    return fetch("http://localhost:8888/training/peserta/" + (idDelete), {
+function deletePelatihan(idDelete){
+    return fetch("http://localhost:8888/pelatihan/peserta/" + (idDelete), {
             method: 'DELETE',
         })
         .then(response => response.json())
         .then(() => location.reload())
 }
 function deletecalonSert(idDelete){
-    return fetch("http://localhost:8888/sertificate/calon/" + (idDelete), {
+    return fetch("http://localhost:8888/sertifikasi/calon/" + (idDelete), {
             method: 'DELETE',
         })
         .then(response => response.json())
         .then(() => location.reload())
 }
 function deletepesertaSert(idDelete){
-    return fetch("http://localhost:8888/sertificate/peserta/" + (idDelete), {
+    return fetch("http://localhost:8888/sertifikasi/peserta/" + (idDelete), {
             method: 'DELETE',
         })
         .then(response => response.json())
@@ -290,8 +291,8 @@ function deletepesertaSert(idDelete){
 }
 
 //fetch edit data
-function editcalonPel(idEdit){
-    return fetch("http://localhost:8888/training/calon/" + (idEdit), {
+function editMinat(idEdit){
+    return fetch("http://localhost:8888/minat/peserta/" + (idEdit), {
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
@@ -306,8 +307,8 @@ function editcalonPel(idEdit){
         .then(response => response.json())
         .then(data => location.reload())
 }
-function editpesertaPel(idEdit){
-    return fetch("http://localhost:8888/training/peserta/" + (idEdit), {
+function editPelatihan(idEdit){
+    return fetch("http://localhost:8888/pelatihan/peserta/" + (idEdit), {
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
@@ -323,7 +324,7 @@ function editpesertaPel(idEdit){
         .then(data => location.reload())
 }
 function editcalonSert(idEdit){
-    return fetch("http://localhost:8888/sertificate/calon/" + (idEdit), {
+    return fetch("http://localhost:8888/sertifikasi/calon/" + (idEdit), {
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
@@ -339,7 +340,7 @@ function editcalonSert(idEdit){
         .then(data => location.reload())
 }
 function editpesertaSert(idEdit){
-    return fetch("http://localhost:8888/sertificate/peserta/" + (idEdit), {
+    return fetch("http://localhost:8888/sertifikasi/peserta/" + (idEdit), {
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
