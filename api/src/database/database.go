@@ -7,6 +7,7 @@ import (
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"gorm.io/gorm/schema"
 )
 
 func InitDB(conf config.Config) *gorm.DB {
@@ -20,23 +21,27 @@ func InitDB(conf config.Config) *gorm.DB {
 		conf.DB_NAME,
 	)
 
-	DB, err := gorm.Open(mysql.Open(connectionString))
+	DB, err := gorm.Open(mysql.Open(connectionString), &gorm.Config{
+		NamingStrategy: schema.NamingStrategy{
+			SingularTable: true,
+		},
+	})
 	if err != nil {
 		fmt.Println("error opening connection : ", err)
 	}
-
-	if DB.Migrator().HasTable(&model.CalonSertificate{}) == false {
-		if DB.Migrator().HasTable("sertificates") {
-			err = DB.Migrator().RenameTable("sertificates", &model.CalonSertificate{})
+	/*
+		if DB.Migrator().HasTable(&model.CalonSertificate{}) == false {
+			if DB.Migrator().HasTable("sertificates") {
+				err = DB.Migrator().RenameTable("sertificates", &model.CalonSertificate{})
+			}
 		}
-	}
-
+	*/
 	err = DB.AutoMigrate(
-		&model.CalonSertificate{},
-		&model.PesertaSertificate{},
+		&model.CalonPesertaSertifikasi{},
+		&model.PesertaSertifikasiSetelahPelatihan{},
 
-		&model.CalonTraining{},
-		&model.PesertaTraining{},
+		&model.PesertaTestMinatBakat{},
+		&model.PesertaPelatihan{},
 	)
 	if err != nil {
 		fmt.Print("error migrating table : ", err)

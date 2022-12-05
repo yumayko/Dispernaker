@@ -1,32 +1,32 @@
 package model
 
-type CalonSertificate struct {
+type CalonPesertaSertifikasi struct {
 	ID         int    `json:"id" gorm:"primaryKey"`
-	Name       string `json:"name"`
+	Nama       string `json:"nama"`
 	Kecamatan  string `json:"kecamatan"`
 	Pelatihan  string `json:"pelatihan"`
 	Keterangan string `json:"keterangan"`
 }
 
-type PesertaSertificate struct {
+type PesertaSertifikasiSetelahPelatihan struct {
 	ID         int    `json:"id" gorm:"primaryKey"`
-	Name       string `json:"name"`
+	Nama       string `json:"nama"`
 	Kecamatan  string `json:"kecamatan"`
 	Pelatihan  string `json:"pelatihan"`
 	Keterangan string `json:"keterangan"`
 }
 
-type CalonTraining struct {
+type PesertaTestMinatBakat struct {
 	ID         int    `json:"id" gorm:"primaryKey"`
-	Name       string `json:"name"`
+	Nama       string `json:"nama"`
 	Kecamatan  string `json:"kecamatan"`
 	Pelatihan  string `json:"pelatihan"`
 	Keterangan string `json:"keterangan"`
 }
 
-type PesertaTraining struct {
+type PesertaPelatihan struct {
 	ID         int    `json:"id" gorm:"primaryKey"`
-	Name       string `json:"name"`
+	Nama       string `json:"nama"`
 	Kecamatan  string `json:"kecamatan"`
 	Pelatihan  string `json:"pelatihan"`
 	Keterangan string `json:"keterangan"`

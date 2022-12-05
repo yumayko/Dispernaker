@@ -9,7 +9,7 @@ import (
 )
 
 func (sc *TrainServiceController) CreatePesTrainController(c echo.Context) error {
-	train := model.PesertaTraining{}
+	train := model.PesertaPelatihan{}
 	c.Bind(&train)
 
 	_, err := sc.TrainServ.CreatePesTrainService(train)
@@ -69,7 +69,7 @@ func (sc *TrainServiceController) GetPesTrainByIDController(c echo.Context) erro
 func (sc *TrainServiceController) UpdatePesTrainController(c echo.Context) error {
 	id := c.Param("id")
 	intID, _ := strconv.ParseInt(id, 10, 64)
-	train := model.PesertaTraining{}
+	train := model.PesertaPelatihan{}
 	train.ID = int(intID)
 	c.Bind(&train)
 

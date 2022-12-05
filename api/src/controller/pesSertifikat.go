@@ -9,7 +9,7 @@ import (
 )
 
 func (sc *SertServiceController) CreatePesSertController(c echo.Context) error {
-	sert := model.PesertaSertificate{}
+	sert := model.PesertaSertifikasiSetelahPelatihan{}
 	c.Bind(&sert)
 
 	_, err := sc.SertServ.CreatePesSertService(sert)
@@ -69,7 +69,7 @@ func (sc *SertServiceController) GetPesSertByIDController(c echo.Context) error 
 func (sc *SertServiceController) UpdatePesSertController(c echo.Context) error {
 	id := c.Param("id")
 	intID, _ := strconv.ParseInt(id, 10, 64)
-	sert := model.PesertaSertificate{}
+	sert := model.PesertaSertifikasiSetelahPelatihan{}
 	sert.ID = int(intID)
 	c.Bind(&sert)
 

@@ -4,19 +4,19 @@ import (
 	"disperinaker-api/model"
 )
 
-func (rs *trainService) CreatePesTrainService(train model.PesertaTraining) (id int, err error) {
+func (rs *trainService) CreatePesTrainService(train model.PesertaPelatihan) (id int, err error) {
 	return rs.repo.CreatePesTrain(train)
 }
 
-func (rs *trainService) GetPesTrainsService() (trains []model.PesertaTraining, err error) {
+func (rs *trainService) GetPesTrainsService() (trains []model.PesertaPelatihan, err error) {
 	return rs.repo.GetPesTrains()
 }
 
-func (rs *trainService) GetPesTrainByIDService(id int) (train model.PesertaTraining, err error) {
+func (rs *trainService) GetPesTrainByIDService(id int) (train model.PesertaPelatihan, err error) {
 	return rs.repo.GetPesTrainByID(id)
 }
 
-func (rs *trainService) UpdatePesTrainService(train model.PesertaTraining, id int) error {
+func (rs *trainService) UpdatePesTrainService(train model.PesertaPelatihan, id int) error {
 	return rs.repo.UpdatePesTrain(train, id)
 }
 
