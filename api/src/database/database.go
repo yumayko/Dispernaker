@@ -29,13 +29,7 @@ func InitDB(conf config.Config) *gorm.DB {
 	if err != nil {
 		fmt.Println("error opening connection : ", err)
 	}
-	/*
-		if DB.Migrator().HasTable(&model.CalonSertificate{}) == false {
-			if DB.Migrator().HasTable("sertificates") {
-				err = DB.Migrator().RenameTable("sertificates", &model.CalonSertificate{})
-			}
-		}
-	*/
+
 	err = DB.AutoMigrate(
 		&model.CalonPesertaSertifikasi{},
 		&model.PesertaSertifikasiSetelahPelatihan{},
@@ -43,6 +37,7 @@ func InitDB(conf config.Config) *gorm.DB {
 		&model.PesertaTestMinatBakat{},
 		&model.PesertaPelatihan{},
 	)
+
 	if err != nil {
 		fmt.Print("error migrating table : ", err)
 	} else {

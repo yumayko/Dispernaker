@@ -9,11 +9,12 @@ type CalonPesertaSertifikasi struct {
 }
 
 type PesertaSertifikasiSetelahPelatihan struct {
-	ID         int    `json:"id" gorm:"primaryKey"`
-	Nama       string `json:"nama"`
-	Kecamatan  string `json:"kecamatan"`
-	Pelatihan  string `json:"pelatihan"`
-	Keterangan string `json:"keterangan"`
+	ID          int    `json:"id" gorm:"primaryKey"`
+	Nama        string `json:"nama"`
+	Kecamatan   string `json:"kecamatan"`
+	Pelatihan   string `json:"pelatihan"`
+	Sertifikasi string `json:"sertifikasi"`
+	Keterangan  string `json:"keterangan"`
 }
 
 type PesertaTestMinatBakat struct {
