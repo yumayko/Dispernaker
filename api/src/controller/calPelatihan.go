@@ -14,7 +14,7 @@ type TrainServiceController struct {
 }
 
 func (sc *TrainServiceController) CreateCalTrainController(c echo.Context) error {
-	train := model.CalonTraining{}
+	train := model.PesertaTestMinatBakat{}
 	c.Bind(&train)
 
 	_, err := sc.TrainServ.CreateCalTrainService(train)
@@ -74,7 +74,7 @@ func (sc *TrainServiceController) GetCalTrainByIDController(c echo.Context) erro
 func (sc *TrainServiceController) UpdateCalTrainController(c echo.Context) error {
 	id := c.Param("id")
 	intID, _ := strconv.ParseInt(id, 10, 64)
-	train := model.CalonTraining{}
+	train := model.PesertaTestMinatBakat{}
 	train.ID = int(intID)
 	c.Bind(&train)
 

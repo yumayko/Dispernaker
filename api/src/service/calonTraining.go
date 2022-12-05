@@ -11,19 +11,19 @@ type trainService struct {
 	repo domain.TrainRepoAdapter
 }
 
-func (rs *trainService) CreateCalTrainService(train model.CalonTraining) (id int, err error) {
+func (rs *trainService) CreateCalTrainService(train model.PesertaTestMinatBakat) (id int, err error) {
 	return rs.repo.CreateCalTrain(train)
 }
 
-func (rs *trainService) GetCalTrainsService() (trains []model.CalonTraining, err error) {
+func (rs *trainService) GetCalTrainsService() (trains []model.PesertaTestMinatBakat, err error) {
 	return rs.repo.GetCalTrains()
 }
 
-func (rs *trainService) GetCalTrainByIDService(id int) (train model.CalonTraining, err error) {
+func (rs *trainService) GetCalTrainByIDService(id int) (train model.PesertaTestMinatBakat, err error) {
 	return rs.repo.GetCalTrainByID(id)
 }
 
-func (rs *trainService) UpdateCalTrainService(train model.CalonTraining, id int) error {
+func (rs *trainService) UpdateCalTrainService(train model.PesertaTestMinatBakat, id int) error {
 	return rs.repo.UpdateCalTrain(train, id)
 }
 

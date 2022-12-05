@@ -4,7 +4,7 @@ import (
 	"disperinaker-api/model"
 )
 
-func (r *repoTrain) CreatePesTrain(train model.PesertaTraining) (id int, err error) {
+func (r *repoTrain) CreatePesTrain(train model.PesertaPelatihan) (id int, err error) {
 	res := r.DB.Debug().Create(&train)
 	if res.RowsAffected < 1 {
 		return 0, res.Error
@@ -13,29 +13,29 @@ func (r *repoTrain) CreatePesTrain(train model.PesertaTraining) (id int, err err
 	return train.ID, nil
 }
 
-func (r *repoTrain) GetPesTrains() (trains []model.PesertaTraining, err error) {
+func (r *repoTrain) GetPesTrains() (trains []model.PesertaPelatihan, err error) {
 	if err = r.DB.
 		Debug().
 		Find(&trains).
 		Error; err != nil {
-		return []model.PesertaTraining{}, err
+		return []model.PesertaPelatihan{}, err
 	}
 
 	return trains, nil
 }
 
-func (r *repoTrain) GetPesTrainByID(id int) (train model.PesertaTraining, err error) {
+func (r *repoTrain) GetPesTrainByID(id int) (train model.PesertaPelatihan, err error) {
 	if err = r.DB.
 		Debug().
 		First(&train, id).
 		Error; err != nil {
-		return model.PesertaTraining{}, err
+		return model.PesertaPelatihan{}, err
 	}
 
 	return
 }
 
-func (r *repoTrain) UpdatePesTrain(train model.PesertaTraining, id int) error {
+func (r *repoTrain) UpdatePesTrain(train model.PesertaPelatihan, id int) error {
 	train.ID = id
 
 	res := r.DB.
@@ -50,7 +50,7 @@ func (r *repoTrain) UpdatePesTrain(train model.PesertaTraining, id int) error {
 }
 
 func (r *repoTrain) DeletePesTrain(id int) error {
-	train := model.PesertaTraining{}
+	train := model.PesertaPelatihan{}
 	train.ID = id
 
 	res := r.DB.Find(&train)

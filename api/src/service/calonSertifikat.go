@@ -11,19 +11,19 @@ type sertService struct {
 	repo domain.SertRepoAdapter
 }
 
-func (rs *sertService) CreateCalSertService(sert model.CalonSertificate) (id int, err error) {
+func (rs *sertService) CreateCalSertService(sert model.CalonPesertaSertifikasi) (id int, err error) {
 	return rs.repo.CreateCalSert(sert)
 }
 
-func (rs *sertService) GetCalSertsService() (serts []model.CalonSertificate, err error) {
+func (rs *sertService) GetCalSertsService() (serts []model.CalonPesertaSertifikasi, err error) {
 	return rs.repo.GetCalSerts()
 }
 
-func (rs *sertService) GetCalSertByIDService(id int) (sert model.CalonSertificate, err error) {
+func (rs *sertService) GetCalSertByIDService(id int) (sert model.CalonPesertaSertifikasi, err error) {
 	return rs.repo.GetCalSertByID(id)
 }
 
-func (rs *sertService) UpdateCalSertService(sert model.CalonSertificate, id int) error {
+func (rs *sertService) UpdateCalSertService(sert model.CalonPesertaSertifikasi, id int) error {
 	return rs.repo.UpdateCalSert(sert, id)
 }
 

@@ -21,7 +21,7 @@ func RegisterSertGroupAPI(e *echo.Echo, conf config.Config) {
 		SertServ: svc,
 	}
 
-	apiCalSert := e.Group("/sertificate/calon")
+	apiCalSert := e.Group("/sertifikasi/calon")
 
 	apiCalSert.POST("", cont.CreateCalSertController)
 	apiCalSert.GET("/all", cont.GetCalSertsController)
@@ -29,7 +29,7 @@ func RegisterSertGroupAPI(e *echo.Echo, conf config.Config) {
 	apiCalSert.PUT("/:id", cont.UpdateCalSertController)
 	apiCalSert.DELETE("/:id", cont.DeleteCalSertController)
 
-	apiPesSert := e.Group("/sertificate/peserta")
+	apiPesSert := e.Group("/sertifikasi/peserta")
 
 	apiPesSert.POST("", cont.CreatePesSertController)
 	apiPesSert.GET("/all", cont.GetPesSertsController)
