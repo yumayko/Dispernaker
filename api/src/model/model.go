@@ -2,7 +2,7 @@ package model
 
 type CalonPesertaSertifikasi struct {
 	ID         int    `json:"id" gorm:"primaryKey"`
-	Name       string `json:"name"`
+	Nama       string `json:"nama"`
 	Kecamatan  string `json:"kecamatan"`
 	Pelatihan  string `json:"pelatihan"`
 	Keterangan string `json:"keterangan"`
@@ -10,7 +10,7 @@ type CalonPesertaSertifikasi struct {
 
 type PesertaSertifikasiSetelahPelatihan struct {
 	ID         int    `json:"id" gorm:"primaryKey"`
-	Name       string `json:"name"`
+	Nama       string `json:"nama"`
 	Kecamatan  string `json:"kecamatan"`
 	Pelatihan  string `json:"pelatihan"`
 	Keterangan string `json:"keterangan"`
@@ -18,7 +18,7 @@ type PesertaSertifikasiSetelahPelatihan struct {
 
 type PesertaTestMinatBakat struct {
 	ID         int    `json:"id" gorm:"primaryKey"`
-	Name       string `json:"name"`
+	Nama       string `json:"nama"`
 	Kecamatan  string `json:"kecamatan"`
 	Pelatihan  string `json:"pelatihan"`
 	Keterangan string `json:"keterangan"`
@@ -26,7 +26,7 @@ type PesertaTestMinatBakat struct {
 
 type PesertaPelatihan struct {
 	ID         int    `json:"id" gorm:"primaryKey"`
-	Name       string `json:"name"`
+	Nama       string `json:"nama"`
 	Kecamatan  string `json:"kecamatan"`
 	Pelatihan  string `json:"pelatihan"`
 	Keterangan string `json:"keterangan"`
