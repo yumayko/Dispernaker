@@ -21,7 +21,7 @@ func RegisterTrainGroupAPI(e *echo.Echo, conf config.Config) {
 		TrainServ: svc,
 	}
 
-	apiCalTrain := e.Group("/minat/peserta")
+	apiCalTrain := e.Group("/minat")
 
 	apiCalTrain.POST("", cont.CreateCalTrainController)
 	apiCalTrain.GET("/all", cont.GetCalTrainsController)
@@ -29,7 +29,7 @@ func RegisterTrainGroupAPI(e *echo.Echo, conf config.Config) {
 	apiCalTrain.PUT("/:id", cont.UpdateCalTrainController)
 	apiCalTrain.DELETE("/:id", cont.DeleteCalTrainController)
 
-	apiPesTrain := e.Group("/pelatihan/peserta")
+	apiPesTrain := e.Group("/pelatihan")
 
 	apiPesTrain.POST("", cont.CreatePesTrainController)
 	apiPesTrain.GET("/all", cont.GetPesTrainsController)
