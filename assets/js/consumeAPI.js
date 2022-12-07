@@ -2,11 +2,12 @@ const V2name = document.getElementById("namaEdit");
 const V2kecamatan = document.getElementById("kecamatanEdit");
 const V2pelatihan = document.getElementById("pelatihanEdit");
 const V2keterangan = document.getElementById("keteranganEdit");
+const V2sertifikasi = document.getElementById("SertifikasiEdit");
 const submitEdit = document.querySelector(".edit-button");
 
 // DISPLAY DATA
-const url1 = fetch('http://localhost:8888/minat/peserta/all');
-const url2 = fetch('http://localhost:8888/pelatihan/peserta/all');
+const url1 = fetch('http://localhost:8888/minat/all');
+const url2 = fetch('http://localhost:8888/pelatihan/all');
 const url3 = fetch('http://localhost:8888/sertifikasi/calon/all');
 const url4 = fetch('http://localhost:8888/sertifikasi/peserta/all');
 
@@ -14,13 +15,9 @@ Promise.all([url1, url2, url3, url4])
 .then(responses => {
     return Promise.all(responses.map(response => response.json()));
 }).then(([calonPel, pesertaPel, calonSert, pesertaSert]) => {
-    console.log(calonPel.data);
     GetData1(calonPel.data);
-    console.log(pesertaPel.data);
     GetData2(pesertaPel.data);
-    console.log(calonSert.data);
     GetData3(calonSert.data);
-    console.log(pesertaSert.data);
     GetData4(pesertaSert.data);
 }).catch(err => {
     console.log(err);
@@ -76,7 +73,6 @@ const GetData3 = (posts) =>{
             <td class="name">${post.nama}</td>
             <td class="kecamatan">${post.kecamatan}</td>
             <td class="pelatihan">${post.pelatihan}</td>
-            <td class="pelatihan">${post.sertifikasi}</td>
             <td class="keterangan">${post.keterangan}</td>
             <td><button class="button-edit" id="button-edit">Edit</button></td>
             <td><button class="button-delete" id="button-delete">Hapus</button></td>
@@ -97,6 +93,7 @@ const GetData4 = (posts) =>{
             <td class="name">${post.nama}</td>
             <td class="kecamatan">${post.kecamatan}</td>
             <td class="pelatihan">${post.pelatihan}</td>
+            <td class="pelatihan">${post.sertifikasi}</td>
             <td class="keterangan">${post.keterangan}</td>
             <td><button class="button-edit" id="button-edit">Edit</button></td>
             <td><button class="button-delete" id="button-delete">Hapus</button></td>
@@ -113,19 +110,30 @@ const Vname = document.getElementById("nama");
 const Vkecamatan = document.getElementById("kecamatan");
 const Vpelatihan = document.getElementById("pelatihan");
 const Vketerangan = document.getElementById("keterangan");
-const postData = () => {
+const Vsertifikasi = document.getElementById("Sertifikasi");
+const postData1 = () => {
     return{
-        name: Vname.value,
+        nama: Vname.value,
         kecamatan: Vkecamatan.value,
         pelatihan: Vpelatihan.value,
         keterangan: Vketerangan.value
+    }
+};
+const postData2 = () => {
+    return{
+        nama: Vname.value,
+        kecamatan: Vkecamatan.value,
+        pelatihan: Vpelatihan.value,
+        keterangan: Vketerangan.value,
+        sertifikasi: Vsertifikasi.value
     }
 };
 
 const addForm = document.querySelector('.popup-body');
 addForm.addEventListener('click', async (e) => {
     e.preventDefault();
-    let payload = postData();
+    let payload = postData1();
+    let payload2 = postData2();
     if(e.target.id==='submit-calonPel'){
         await postMinat(payload);
     }
@@ -136,12 +144,12 @@ addForm.addEventListener('click', async (e) => {
         await postcalonSert(payload);
     }
     if(e.target.id==='submit-pesertaSert'){
-        await postpesertaSert(payload);
+        await postpesertaSert(payload2);
     }
 });
 
 function postMinat(postData){
-    return fetch("http://localhost:8888/minat/peserta", {
+    return fetch("http://localhost:8888/minat", {
             method: 'POST',
             headers:{
                 "Content-Type":"application/json"
@@ -157,7 +165,7 @@ function postMinat(postData){
         })
 }
 function postPelatihan(postData){
-    return fetch("http://localhost:8888/pelatihan/peserta", {
+    return fetch("http://localhost:8888/pelatihan", {
             method: 'POST',
             headers:{
                 "Content-Type":"application/json"
@@ -206,70 +214,73 @@ function postpesertaSert(postData){
 }
 
 // edit & delete data
-const classData = document.querySelector('.t-body');
-document.addEventListener('click', (e) => {
-    let id = e.target.parentElement.parentElement.dataset.id;
+const classData = document.querySelectorAll('.t-body');
+for (let i = 0; i < classData.length; i++) {
+    classData[i].addEventListener('click', (e) => {
+        let id = e.target.parentElement.parentElement.dataset.id;
+        // delete data
+        if(e.target.classList.contains('button-delete')){
+            if(e.target.parentElement.parentElement.parentElement.id==='tbody1'){
+                deleteMinat(id);
+            }
+            if(e.target.parentElement.parentElement.parentElement.id==='tbody2'){
+                deletePelatihan(id);
+            }
+            if(e.target.parentElement.parentElement.parentElement.id==='tbody3'){
+                deletecalonSert(id);
+            }
+            if(e.target.parentElement.parentElement.parentElement.id==='tbody4'){
+                deletepesertaSert(id);
+            }
+        }
 
-    // delete data
-    if(e.target.classList.contains('button-delete')){
-        if(e.target.parentElement.parentElement.parentElement.id==='tbody1'){
-            deleteMinat(id);
+        // edit data
+        if(e.target.classList.contains('button-edit')){
+            const popupEdit = document.querySelector('.popupEdit').style.display = 'flex';
+            if(popupEdit === 'flex') {
+                document.querySelector('body').style.overflow = 'hidden';
+                const parent = e.target.parentElement.parentElement;
+                let name = parent.querySelector('.name').textContent;
+                let kecamatan = parent.querySelector('.kecamatan').textContent;
+                let pelatihan = parent.querySelector('.pelatihan').textContent;
+                let keterangan = parent.querySelector('.keterangan').textContent;
+                let sertifikasi = parent.querySelector('.keterangan').textContent;
+        
+                V2name.value = name;
+                V2kecamatan.value = kecamatan;
+                V2pelatihan.value = pelatihan;
+                V2keterangan.value = keterangan;
+                V2sertifikasi.value = sertifikasi;
+            }
         }
-        if(e.target.parentElement.parentElement.parentElement.id==='tbody2'){
-            deletePelatihan(id);
-        }
-        if(e.target.parentElement.parentElement.parentElement.id==='tbody3'){
-            deletecalonSert(id);
-        }
-        if(e.target.parentElement.parentElement.parentElement.id==='tbody4'){
-            deletepesertaSert(id);
-        }
-    }
-
-    // edit data
-    if(e.target.classList.contains('button-edit')){
-        const popupEdit = document.querySelector('.popupEdit').style.display = 'flex';
-        if(popupEdit === 'flex') {
-            document.querySelector('body').style.overflow = 'hidden';
-            const parent = e.target.parentElement.parentElement;
-            let name = parent.querySelector('.name').textContent;
-            let kecamatan = parent.querySelector('.kecamatan').textContent;
-            let pelatihan = parent.querySelector('.pelatihan').textContent;
-            let keterangan = parent.querySelector('.keterangan').textContent;
-    
-            V2name.value = name;
-            V2kecamatan.value = kecamatan;
-            V2pelatihan.value = pelatihan;
-            V2keterangan.value = keterangan;
-        }
-    }
-    submitEdit.addEventListener('click', (a) => {
-        a.preventDefault();
-        if(e.target.parentElement.parentElement.parentElement.id==='tbody1'){
-            editMinat(id);
-        }
-        if(e.target.parentElement.parentElement.parentElement.id==='tbody2'){
-            editPelatihan(id);
-        }
-        if(e.target.parentElement.parentElement.parentElement.id==='tbody3'){
-            editcalonSert(id);
-        }
-        if(e.target.parentElement.parentElement.parentElement.id==='tbody4'){
-            editpesertaSert(id);
-        }
-    })
-});
+        submitEdit.addEventListener('click', (a) => {
+            a.preventDefault();
+            if(e.target.parentElement.parentElement.parentElement.id==='tbody1'){
+                editMinat(id);
+            }
+            if(e.target.parentElement.parentElement.parentElement.id==='tbody2'){
+                editPelatihan(id);
+            }
+            if(e.target.parentElement.parentElement.parentElement.id==='tbody3'){
+                editcalonSert(id);
+            }
+            if(e.target.parentElement.parentElement.parentElement.id==='tbody4'){
+                editpesertaSert(id);
+            }
+        })
+    });
+}
 
 //fetch delete data
 function deleteMinat(idDelete){
-    return fetch("http://localhost:8888/minat/peserta/" + (idDelete), {
+    return fetch("http://localhost:8888/minat/" + (idDelete), {
             method: 'DELETE',
         })
         .then(response => response.json())
         .then(() => location.reload())
 }
 function deletePelatihan(idDelete){
-    return fetch("http://localhost:8888/pelatihan/peserta/" + (idDelete), {
+    return fetch("http://localhost:8888/pelatihan/" + (idDelete), {
             method: 'DELETE',
         })
         .then(response => response.json())
@@ -292,13 +303,13 @@ function deletepesertaSert(idDelete){
 
 //fetch edit data
 function editMinat(idEdit){
-    return fetch("http://localhost:8888/minat/peserta/" + (idEdit), {
+    return fetch("http://localhost:8888/minat/" + (idEdit), {
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
             },
             body: JSON.stringify({
-                name: V2name.value,
+                nama: V2name.value,
                 kecamatan: V2kecamatan.value,
                 pelatihan: V2pelatihan.value,
                 keterangan: V2keterangan.value
@@ -308,13 +319,13 @@ function editMinat(idEdit){
         .then(data => location.reload())
 }
 function editPelatihan(idEdit){
-    return fetch("http://localhost:8888/pelatihan/peserta/" + (idEdit), {
+    return fetch("http://localhost:8888/pelatihan/" + (idEdit), {
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
             },
             body: JSON.stringify({
-                name: V2name.value,
+                nama: V2name.value,
                 kecamatan: V2kecamatan.value,
                 pelatihan: V2pelatihan.value,
                 keterangan: V2keterangan.value
@@ -330,7 +341,7 @@ function editcalonSert(idEdit){
                 "Content-Type":"application/json"
             },
             body: JSON.stringify({
-                name: V2name.value,
+                nama: V2name.value,
                 kecamatan: V2kecamatan.value,
                 pelatihan: V2pelatihan.value,
                 keterangan: V2keterangan.value
@@ -346,10 +357,11 @@ function editpesertaSert(idEdit){
                 "Content-Type":"application/json"
             },
             body: JSON.stringify({
-                name: V2name.value,
+                nama: V2name.value,
                 kecamatan: V2kecamatan.value,
                 pelatihan: V2pelatihan.value,
-                keterangan: V2keterangan.value
+                keterangan: V2keterangan.value,
+                sertifikasi: Vsertifikasi.value
             })
         })
         .then(response => response.json())

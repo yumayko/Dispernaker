@@ -9,22 +9,26 @@ for (let i = 0; i < openAddData.length; i++) {
     });
 }
 
-document.querySelector(".calonPel").onclick = function() {
+document.querySelector(".Minat").onclick = function() {
+    document.querySelector('.Sertifikasi').style.display = 'none';
     document.getElementById("submit-pesertaPel").style.display = "none";
     document.getElementById("submit-calonSert").style.display = "none";
     document.getElementById("submit-pesertaSert").style.display = "none";
 }
-document.querySelector(".pesertaPel").onclick = function() {
+document.querySelector(".Pelatihan").onclick = function() {
+    document.querySelector('.Sertifikasi').style.display = 'none';
     document.getElementById("submit-calonPel").style.display = "none";
     document.getElementById("submit-calonSert").style.display = "none";
     document.getElementById("submit-pesertaSert").style.display = "none";
 }
 document.querySelector(".calonSert").onclick = function() {
+    document.querySelector('.Sertifikasi').style.display = 'none';
     document.getElementById("submit-calonPel").style.display = "none";
     document.getElementById("submit-pesertaPel").style.display = "none";
     document.getElementById("submit-pesertaSert").style.display = "none";
 }
 document.querySelector(".pesertaSert").onclick = function() {
+    document.querySelector('.Sertifikasi').style.display = 'block';
     document.getElementById("submit-calonPel").style.display = "none";
     document.getElementById("submit-pesertaPel").style.display = "none";
     document.getElementById("submit-calonSert").style.display = "none";
