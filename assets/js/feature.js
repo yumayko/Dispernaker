@@ -46,6 +46,7 @@ for (let i = 0; i < closeAddData.length; i++) {
             document.getElementById("submit-pesertaPel").style.display = "block";
             document.getElementById("submit-calonSert").style.display = "block";
             document.getElementById("submit-pesertaSert").style.display = "block";
+            document.querySelector('.SertifikasiEdit').style.display = 'none';
         }
     });
 }

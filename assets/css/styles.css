@@ -477,7 +477,7 @@ th, td {
 
 }
 
-.button-edit {
+.button-edit, .pesertaSertEdit {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;

@@ -2,7 +2,7 @@ const V2name = document.getElementById("namaEdit");
 const V2kecamatan = document.getElementById("kecamatanEdit");
 const V2pelatihan = document.getElementById("pelatihanEdit");
 const V2keterangan = document.getElementById("keteranganEdit");
-const V2sertifikasi = document.getElementById("SertifikasiEdit");
+const V2sertifikasi = document.getElementById("sertifikasiEdit");
 const submitEdit = document.querySelector(".edit-button");
 
 // DISPLAY DATA
@@ -93,9 +93,9 @@ const GetData4 = (posts) =>{
             <td class="name">${post.nama}</td>
             <td class="kecamatan">${post.kecamatan}</td>
             <td class="pelatihan">${post.pelatihan}</td>
-            <td class="pelatihan">${post.sertifikasi}</td>
+            <td class="sertifikasi">${post.sertifikasi}</td>
             <td class="keterangan">${post.keterangan}</td>
-            <td><button class="button-edit" id="button-edit">Edit</button></td>
+            <td><button class="pesertaSertEdit" id="button-edit">Edit</button></td>
             <td><button class="button-delete" id="button-delete">Hapus</button></td>
         </tr>`;
     })
@@ -237,6 +237,7 @@ for (let i = 0; i < classData.length; i++) {
         // edit data
         if(e.target.classList.contains('button-edit')){
             const popupEdit = document.querySelector('.popupEdit').style.display = 'flex';
+            document.querySelector('.SertifikasiEdit').style.display = 'none';
             if(popupEdit === 'flex') {
                 document.querySelector('body').style.overflow = 'hidden';
                 const parent = e.target.parentElement.parentElement;
@@ -244,13 +245,30 @@ for (let i = 0; i < classData.length; i++) {
                 let kecamatan = parent.querySelector('.kecamatan').textContent;
                 let pelatihan = parent.querySelector('.pelatihan').textContent;
                 let keterangan = parent.querySelector('.keterangan').textContent;
-                let sertifikasi = parent.querySelector('.keterangan').textContent;
         
                 V2name.value = name;
                 V2kecamatan.value = kecamatan;
                 V2pelatihan.value = pelatihan;
                 V2keterangan.value = keterangan;
+            }
+        }
+        if(e.target.classList.contains('pesertaSertEdit')){
+            const popupEdit = document.querySelector('.popupEdit').style.display = 'flex';
+            document.querySelector('.SertifikasiEdit').style.display = 'block';
+            if(popupEdit === 'flex') {
+                document.querySelector('body').style.overflow = 'hidden';
+                const parent = e.target.parentElement.parentElement;
+                let name = parent.querySelector('.name').textContent;
+                let kecamatan = parent.querySelector('.kecamatan').textContent;
+                let pelatihan = parent.querySelector('.pelatihan').textContent;
+                let sertifikasi = parent.querySelector('.sertifikasi').textContent;
+                let keterangan = parent.querySelector('.keterangan').textContent;
+        
+                V2name.value = name;
+                V2kecamatan.value = kecamatan;
+                V2pelatihan.value = pelatihan;
                 V2sertifikasi.value = sertifikasi;
+                V2keterangan.value = keterangan;
             }
         }
         submitEdit.addEventListener('click', (a) => {
@@ -360,8 +378,8 @@ function editpesertaSert(idEdit){
                 nama: V2name.value,
                 kecamatan: V2kecamatan.value,
                 pelatihan: V2pelatihan.value,
-                keterangan: V2keterangan.value,
-                sertifikasi: Vsertifikasi.value
+                sertifikasi: V2sertifikasi.value,
+                keterangan: V2keterangan.value
             })
         })
         .then(response => response.json())
