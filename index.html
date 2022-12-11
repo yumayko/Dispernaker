@@ -36,85 +36,19 @@
             <section class="home bd-grid" id="home">
                 <div class="home__data">
                     <div class="mapSby">
-                        <iframe src="https://public.tableau.com/views/SebaranCalonPesertaPelatihanDisnakerSurabaya/Dashboard1?:language=en-US&:embed=true?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&:language=en-US&:loadOrderID=0" frameborder="0" style="width:100%;height:827px" ></iframe>
+                      <div class='tableauPlaceholder' id='viz1670743102869' style='position: relative'><noscript><a href='#'><img alt='Calon Peserta Sertifikasi Disnaker 2022 per Kecamatan ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;di&#47;disnakercalonsertifikasi2022&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='disnakercalonsertifikasi2022&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;di&#47;disnakercalonsertifikasi2022&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1670743102869');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
                     </div>
                 </div>
                 <div class="home__data">
-                    <h2 class="home__chart">Nanti ini berisi grafik</h2>
-                    <div class="chart" style="width: 100%;height: 500px">
-                        <canvas id="myChart"></canvas>
+                    <h2 class="home__chart">Data Grafik Peserta dari Kecamatan</h2>
+                    <div class="chart" style="width: 100%; height: 500px">
+                        <canvas id="chartKec"></canvas>
                     </div>
-                    <script>
-                        var barChartData = {
-                          labels: [
-                            "kota A",
-                            "kota B",
-                            "kota C",
-                            "kota D",
-                            "kota E",
-                            "kota F",
-                            "kota G",
-                            "kota H"
-                          ],
-                        
-                          datasets: [
-                            {
-                              label: "Calon Pelatihan",
-                              backgroundColor: "pink",
-                              borderColor: "red",
-                              borderWidth: 1,
-                              data: [3, 5, 6, 7,3, 5, 6, 7]
-                            },
-                            {
-                              label: "Peserta Pelatihan",
-                              backgroundColor: "lightblue",
-                              borderColor: "blue",
-                              borderWidth: 1,
-                              data: [4, 7, 3, 6, 10,7,4,6]
-                            },
-                            {
-                              label: "Calon Sertifikasi",
-                              backgroundColor: "lightgreen",
-                              borderColor: "green",
-                              borderWidth: 1,
-                              data: [10,7,4,6,9,7,3,10]
-                            },
-                            {
-                              label: "Peserta Sertifikasi",
-                              backgroundColor: "yellow",
-                              borderColor: "orange",
-                              borderWidth: 1,
-                              data: [6,9,7,3,10,7,4,6]
-                            }
-                          ]
-                        };
-                        
-                        var chartOptions = {
-                          responsive: true,
-                          legend: {
-                            position: "top"
-                          },
-                          title: {
-                            display: true,
-                            text: "Chart.js Bar Chart"
-                          },
-                          scales: {
-                            yAxes: [{
-                              ticks: {
-                                beginAtZero: true
-                              }
-                            }]
-                          }
-                        }
-                        
-                          var ctx = document.getElementById("myChart").getContext("2d");
-                          window.myBar = new Chart(ctx, {
-                            type: "bar",
-                            data: barChartData,
-                            options: chartOptions
-                          });
-                        
-                        </script>
+
+                    <h2 class="home__chart">Data Grafik Peserta dari Pelatihan</h2>
+                    <div class="chart" style="width: 100%; height: 500px">
+                        <canvas id="chartPel"></canvas>
+                    </div>
                 </div>
             </section>
         </main>
@@ -127,9 +61,13 @@
 
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>
-        <script type="text/javascript" src="assets/js/chart.js"></script>
+        <!-- <script type="text/javascript" src="assets/js/chart.js"></script> -->
 
         <!--===== MAIN JS =====-->
         <script src="assets/js/main.js"></script>
+
+        <!--===== chart =====-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="text/javascript" src="assets/js/Chart2.js"></script>
     </body>
 </html>
