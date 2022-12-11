@@ -35,86 +35,20 @@
             <!--===== DASHBOARD =====-->
             <section class="home bd-grid" id="home">
                 <div class="home__data">
-                    <div class="mapSby">
+                    <!-- <div class="mapSby">
                         <iframe src="https://public.tableau.com/views/SebaranCalonPesertaPelatihanDisnakerSurabaya/Dashboard1?:language=en-US&:embed=true?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&:language=en-US&:loadOrderID=0" frameborder="0" style="width:100%;height:827px" ></iframe>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="home__data">
-                    <h2 class="home__chart">Nanti ini berisi grafik</h2>
-                    <div class="chart" style="width: 100%;height: 500px">
-                        <canvas id="myChart"></canvas>
+                    <h2 class="home__chart">Data Grafik Peserta dari Kecamatan</h2>
+                    <div class="chart" style="width: 100%; height: 500px">
+                        <canvas id="chartKec"></canvas>
                     </div>
-                    <script>
-                        var barChartData = {
-                          labels: [
-                            "kota A",
-                            "kota B",
-                            "kota C",
-                            "kota D",
-                            "kota E",
-                            "kota F",
-                            "kota G",
-                            "kota H"
-                          ],
-                        
-                          datasets: [
-                            {
-                              label: "Calon Pelatihan",
-                              backgroundColor: "pink",
-                              borderColor: "red",
-                              borderWidth: 1,
-                              data: [3, 5, 6, 7,3, 5, 6, 7]
-                            },
-                            {
-                              label: "Peserta Pelatihan",
-                              backgroundColor: "lightblue",
-                              borderColor: "blue",
-                              borderWidth: 1,
-                              data: [4, 7, 3, 6, 10,7,4,6]
-                            },
-                            {
-                              label: "Calon Sertifikasi",
-                              backgroundColor: "lightgreen",
-                              borderColor: "green",
-                              borderWidth: 1,
-                              data: [10,7,4,6,9,7,3,10]
-                            },
-                            {
-                              label: "Peserta Sertifikasi",
-                              backgroundColor: "yellow",
-                              borderColor: "orange",
-                              borderWidth: 1,
-                              data: [6,9,7,3,10,7,4,6]
-                            }
-                          ]
-                        };
-                        
-                        var chartOptions = {
-                          responsive: true,
-                          legend: {
-                            position: "top"
-                          },
-                          title: {
-                            display: true,
-                            text: "Chart.js Bar Chart"
-                          },
-                          scales: {
-                            yAxes: [{
-                              ticks: {
-                                beginAtZero: true
-                              }
-                            }]
-                          }
-                        }
-                        
-                          var ctx = document.getElementById("myChart").getContext("2d");
-                          window.myBar = new Chart(ctx, {
-                            type: "bar",
-                            data: barChartData,
-                            options: chartOptions
-                          });
-                        
-                        </script>
+
+                    <h2 class="home__chart">Data Grafik Peserta dari Pelatihan</h2>
+                    <div class="chart" style="width: 100%; height: 500px">
+                        <canvas id="chartPel"></canvas>
+                    </div>
                 </div>
             </section>
         </main>
@@ -127,9 +61,13 @@
 
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>
-        <script type="text/javascript" src="assets/js/chart.js"></script>
+        <!-- <script type="text/javascript" src="assets/js/chart.js"></script> -->
 
         <!--===== MAIN JS =====-->
         <script src="assets/js/main.js"></script>
+
+        <!--===== chart =====-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="text/javascript" src="assets/js/Chart2.js"></script>
     </body>
 </html>
