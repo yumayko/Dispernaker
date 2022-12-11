@@ -1,7 +1,7 @@
 version: "2.1"
 services:
 
-  koba_api:
+  disperinaker_api:
     build: .
     restart: always
     environment:

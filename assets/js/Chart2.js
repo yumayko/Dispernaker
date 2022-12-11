@@ -108,7 +108,7 @@ chartKec();
 let elementCnt1=[], NewLabels=[], dataKecMinat=[], dataKecPelatihan=[], dataKecSertC=[], dataKecSertP=[];
 let elementCnt2=[], LabelPel=[], dataPelMinat=[], dataPelPelatihan=[], dataPelSertC=[], dataPelSertP=[];
 function getMinatData(){
-  return fetch("http://localhost:8888/minat/all")
+  return fetch("http://54.226.168.28/minat/all")
   .then(response => response.json())
   .then(res => {
       const data = res.data;
@@ -127,7 +127,7 @@ function getMinatData(){
   })
 }
 function getPelatihanData(){
-  return fetch("http://localhost:8888/pelatihan/all")
+  return fetch("http://54.226.168.28/pelatihan/all")
   .then(response => response.json())
   .then(res => {
       const data = res.data;
@@ -143,7 +143,7 @@ function getPelatihanData(){
   })
 }
 function getcalonSertData(){
-  return fetch("http://localhost:8888/sertifikasi/calon/all")
+  return fetch("http://54.226.168.28/sertifikasi/calon/all")
   .then(response => response.json())
   .then(res => {
       const data = res.data;
@@ -159,7 +159,7 @@ function getcalonSertData(){
   })
 }
 function getpesertaSertData(){
-  return fetch("http://localhost:8888/sertifikasi/peserta/all")
+  return fetch("http://54.226.168.28/sertifikasi/peserta/all")
   .then(response => response.json())
   .then(res => {
       const data = res.data;
