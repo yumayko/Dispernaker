@@ -1,0 +1,10 @@
+version: "2.1"
+services:
+
+  disperinaker_api:
+    build: .
+    restart: always
+    environment:
+      SERVER_ADDRESS: "0.0.0.0:8149"
+    ports:
+      - "80:8149"
