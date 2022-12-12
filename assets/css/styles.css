@@ -376,6 +376,15 @@ img {
   border-radius: 3px;
   transition: all 0.3s ease;
 }
+.form-group select{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
 .form-group input:is(:focus, :valid){
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
