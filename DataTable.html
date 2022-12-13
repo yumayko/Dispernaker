@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
         <link rel="stylesheet" href="assets/css/styles.css">
 
@@ -203,7 +204,16 @@
                         </div>
                         <div class="form-group">
                             <label for="kecamatan">Kecamatan</label>
-                            <input type="text" name="kecamatan" id="kecamatan" placeholder="Masukkan Kecamatan" required>
+                            <select id="kecamatan" name="kecamatan">
+                                <option value="Lakarsantri">Lakarsantri</option>
+                                <option value="Jambangan">Jambangan</option>
+                                <option value="Genteng">Genteng</option>
+                                <option value="Semampir">Semampir</option>
+                                <option value="Sawahan">Sawahan</option>
+                                <option value="Sukomanunggal">Sukomanunggal</option>
+                                <option value="Wonokromo">Wonokromo</option>
+                                
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="pelatihan">Pelatihan</label>
