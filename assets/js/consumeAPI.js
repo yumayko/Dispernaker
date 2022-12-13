@@ -110,7 +110,7 @@ const Vname = document.getElementById("nama");
 const Vkecamatan = document.getElementById("kecamatan");
 const Vpelatihan = document.getElementById("pelatihan");
 const Vketerangan = document.getElementById("keterangan");
-const Vsertifikasi = document.getElementById("Sertifikasi");
+const Vsertifikasi = document.getElementById("sertifikasi");
 const postData1 = () => {
     return{
         nama: Vname.value,
