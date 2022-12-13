@@ -1,10 +1,3 @@
-const V2name = document.getElementById("namaEdit");
-const V2kecamatan = document.getElementById("kecamatanEdit");
-const V2pelatihan = document.getElementById("pelatihanEdit");
-const V2keterangan = document.getElementById("keteranganEdit");
-const V2sertifikasi = document.getElementById("sertifikasiEdit");
-const submitEdit = document.querySelector(".edit-button");
-
 // DISPLAY DATA
 const url1 = fetch('http://54.226.168.28/minat/all');
 const url2 = fetch('http://54.226.168.28/pelatihan/all');
@@ -214,6 +207,13 @@ function postpesertaSert(postData){
 }
 
 // edit & delete data
+const V2name = document.getElementById("namaEdit");
+const V2kecamatan = document.getElementById("kecamatanEdit");
+const V2pelatihan = document.getElementById("pelatihanEdit");
+const V2keterangan = document.getElementById("keteranganEdit");
+const V2sertifikasi = document.getElementById("sertifikasiEdit");
+const submitEdit = document.querySelector(".edit-button");
+
 const classData = document.querySelectorAll('.t-body');
 for (let i = 0; i < classData.length; i++) {
     classData[i].addEventListener('click', (e) => {
@@ -245,6 +245,7 @@ for (let i = 0; i < classData.length; i++) {
                 let kecamatan = parent.querySelector('.kecamatan').textContent;
                 let pelatihan = parent.querySelector('.pelatihan').textContent;
                 let keterangan = parent.querySelector('.keterangan').textContent;
+                console.log(kecamatan)
         
                 V2name.value = name;
                 V2kecamatan.value = kecamatan;
