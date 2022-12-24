@@ -1,8 +1,8 @@
 // DISPLAY DATA
-const url1 = fetch('http://54.226.168.28/minat/all');
-const url2 = fetch('http://54.226.168.28/pelatihan/all');
-const url3 = fetch('http://54.226.168.28/sertifikasi/calon/all');
-const url4 = fetch('http://54.226.168.28/sertifikasi/peserta/all');
+const url1 = fetch('http://34.229.17.61/minat/all');
+const url2 = fetch('http://34.229.17.61/pelatihan/all');
+const url3 = fetch('http://34.229.17.61/sertifikasi/calon/all');
+const url4 = fetch('http://34.229.17.61/sertifikasi/peserta/all');
 
 Promise.all([url1, url2, url3, url4])
 .then(responses => {
@@ -142,7 +142,7 @@ addForm.addEventListener('click', async (e) => {
 });
 
 function postMinat(postData){
-    return fetch("http://54.226.168.28/minat", {
+    return fetch("http://34.229.17.61/minat", {
             method: 'POST',
             headers:{
                 "Content-Type":"application/json"
@@ -158,7 +158,7 @@ function postMinat(postData){
         })
 }
 function postPelatihan(postData){
-    return fetch("http://54.226.168.28/pelatihan", {
+    return fetch("http://34.229.17.61/pelatihan", {
             method: 'POST',
             headers:{
                 "Content-Type":"application/json"
@@ -174,7 +174,7 @@ function postPelatihan(postData){
         })
 }
 function postcalonSert(postData){
-    return fetch("http://54.226.168.28/sertifikasi/calon", {
+    return fetch("http://34.229.17.61/sertifikasi/calon", {
             method: 'POST',
             headers:{
                 "Content-Type":"application/json"
@@ -190,7 +190,7 @@ function postcalonSert(postData){
         })
 }
 function postpesertaSert(postData){
-    return fetch("http://54.226.168.28/sertifikasi/peserta", {
+    return fetch("http://34.229.17.61/sertifikasi/peserta", {
             method: 'POST',
             headers:{
                 "Content-Type":"application/json"
@@ -292,28 +292,28 @@ for (let i = 0; i < classData.length; i++) {
 
 //fetch delete data
 function deleteMinat(idDelete){
-    return fetch("http://54.226.168.28/minat/" + (idDelete), {
+    return fetch("http://34.229.17.61/minat/" + (idDelete), {
             method: 'DELETE',
         })
         .then(response => response.json())
         .then(() => location.reload())
 }
 function deletePelatihan(idDelete){
-    return fetch("http://54.226.168.28/pelatihan/" + (idDelete), {
+    return fetch("http://34.229.17.61/pelatihan/" + (idDelete), {
             method: 'DELETE',
         })
         .then(response => response.json())
         .then(() => location.reload())
 }
 function deletecalonSert(idDelete){
-    return fetch("http://54.226.168.28/sertifikasi/calon/" + (idDelete), {
+    return fetch("http://34.229.17.61/sertifikasi/calon/" + (idDelete), {
             method: 'DELETE',
         })
         .then(response => response.json())
         .then(() => location.reload())
 }
 function deletepesertaSert(idDelete){
-    return fetch("http://54.226.168.28/sertifikasi/peserta/" + (idDelete), {
+    return fetch("http://34.229.17.61/sertifikasi/peserta/" + (idDelete), {
             method: 'DELETE',
         })
         .then(response => response.json())
@@ -322,7 +322,7 @@ function deletepesertaSert(idDelete){
 
 //fetch edit data
 function editMinat(idEdit){
-    return fetch("http://54.226.168.28/minat/" + (idEdit), {
+    return fetch("http://34.229.17.61/minat/" + (idEdit), {
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
@@ -338,7 +338,7 @@ function editMinat(idEdit){
         .then(data => location.reload())
 }
 function editPelatihan(idEdit){
-    return fetch("http://54.226.168.28/pelatihan/" + (idEdit), {
+    return fetch("http://34.229.17.61/pelatihan/" + (idEdit), {
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
@@ -354,7 +354,7 @@ function editPelatihan(idEdit){
         .then(data => location.reload())
 }
 function editcalonSert(idEdit){
-    return fetch("http://54.226.168.28/sertifikasi/calon/" + (idEdit), {
+    return fetch("http://34.229.17.61/sertifikasi/calon/" + (idEdit), {
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
@@ -370,7 +370,7 @@ function editcalonSert(idEdit){
         .then(data => location.reload())
 }
 function editpesertaSert(idEdit){
-    return fetch("http://54.226.168.28/sertifikasi/peserta/" + (idEdit), {
+    return fetch("http://34.229.17.61/sertifikasi/peserta/" + (idEdit), {
             method: 'PUT',
             headers:{
                 "Content-Type":"application/json"
